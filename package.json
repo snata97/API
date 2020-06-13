@@ -1,0 +1,21 @@
+{
+  "name": "api_express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "pg-promise": "^10.5.5"
+  },
+  "apidoc": {
+    "name": "Api FlamingSpace",
+    "version": "1.0.0",
+    "description": "Документация апи проекта flamingspace :)"
+  }
+}
