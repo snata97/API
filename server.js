@@ -11,13 +11,14 @@ app.use("/", routes);
 
 
 app.listen(3012, function(){
-    console.log('API app started');
     db.connect()
     .then(function (obj) {
+        console.log('API app started');
         obj.done();
     })
     .catch(function (error) {
         console.log("ERROR: no connect database");
+        process.exit(-1);
     });
 })
 
