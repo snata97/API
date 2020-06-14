@@ -12,9 +12,9 @@ const accountVacancyController = require('./controllers/account_vacancy');
 const accountJobController = require('./controllers/account_job');
 const router = express.Router();
 
-// '/users' ГОТОВО
+// '/users'
 router.get('/users', accountController.all);
-router.get('/users/:page/:limit', accountController.allPageLimit);//http://localhost:3012/users/1/2?status=статус
+router.get('/users/:page/:limit', accountController.allPageLimit);
 router.get('/users/:id', accountController.findById);
 router.post('/users', accountController.create);
 router.put('/users', accountController.update);
@@ -24,7 +24,7 @@ router.delete('/users/:userid/contacts', accountContactController.delete);
 router.put('/users/:userid/competences', accountCompetenceController.update);
 router.delete('/users/:userid/competences', accountCompetenceController.delete);
 
-// // '/projects' ГОТОВО
+// // '/projects'
 router.get('/projects', projectController.all);
 router.get('/projects/:id', projectController.findById);
 router.get('/projects/:page/:limit', projectController.allPageLimit);
@@ -44,15 +44,15 @@ router.put('/projects/:projectid/jobs/:jobid/:userid', accountJobController.upda
 router.delete('/projects/:projectid/jobs/:jobid/:userid', accountJobController.delete);
 
 
-// '/additional' // http://localhost:3012/additional ДОКУМЕНТАЦИЯ
+// '/additional' // http://localhost:3012/additional
 router.post('/upsert/contact', contactController.create);
 router.put('/upsert/contact', contactController.update);
 router.delete('/upsert/contact', contactController.delete);
 router.post('/upsert/competence', competenceController.create);
 router.put('/upsert/competence', competenceController.update);
 router.delete('/upsert/competence', competenceController.delete);
-router.post('/upsert/job', jobController.create)//ДОКУМЕНТАЦИЯ
-router.put('/upsert/job', jobController.update);//ДОКУМЕНТАЦИЯ
-router.delete('/upsert/job', jobController.delete);//ДОКУМЕНТАЦИЯ
+router.post('/upsert/job', jobController.create)
+router.put('/upsert/job', jobController.update);
+router.delete('/upsert/job', jobController.delete);
 
 module.exports = router;

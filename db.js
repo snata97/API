@@ -1,5 +1,4 @@
 var options = {
-    // Initialization Options
     schema: 'flamingspace'
 };
 var pgp = require("pg-promise")(options);
@@ -18,3 +17,4 @@ module.exports.connect = function(){
         return state.db;
     }
 }
+

@@ -12,4 +12,14 @@ app.use("/", routes);
 
 app.listen(3012, function(){
     console.log('API app started');
+    db.connect()
+    .then(function (obj) {
+        obj.done();
+    })
+    .catch(function (error) {
+        console.log("ERROR: no connect database");
+    });
 })
+
+
+
