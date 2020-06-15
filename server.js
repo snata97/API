@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({extended: true}));//Парсить данные �
 app.use("/", routes);
 
 
-app.listen(3012, function(){
+app.listen(80, function(){
     db.connect()
     .then(function (obj) {
         console.log('API app started');
