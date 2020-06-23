@@ -3,10 +3,7 @@ var account_contact = require('../models/account_contact');
 exports.update = function(req, res) {
   account_contact.update(req.body,req.params.userid)
       .then(function () {
-          res.status(204)
-          .json({
-            status: 'No content'
-          });
+          res.status(204);
         })
       .catch(function (err) {
           res.status(404)
@@ -22,10 +19,7 @@ exports.update = function(req, res) {
 exports.delete = function(req, res) {
   account_contact.delete(req.body,req.params.userid)
       .then(function () {
-          res.status(204)
-          .json({
-            status: 'No content'
-          });
+          res.status(204);
         })
       .catch(function (err) {
           res.status(404)

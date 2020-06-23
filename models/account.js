@@ -16,6 +16,7 @@ exports.findById = function (id) {
     })
 }
 
+
 exports.all = function () {
     return db.any(`
        SELECT acc.*, 
@@ -73,16 +74,14 @@ exports.create = function (body) {
     })
 }
 
-exports.update = function (body) {
+exports.update = function (body,id) {
     let keysAndValues = [];
-    let id = body.id;
     for (let key in body) {
-        if(key=="id") continue;
         keysAndValues.push(key+" = ${"+ key+"}");
     }
-    return db.none('UPDATE account SET '+ keysAndValues.join(',') + ' WHERE id = ${id}', body);
+    return db.none('UPDATE account SET '+ keysAndValues.join(',') + ' WHERE id = '+id, body);
 }
 
-exports.delete = function (body) {
-    return db.none('DELETE FROM account WHERE id = ${id}', {id: body.id});    
+exports.delete = function (id) {
+    return db.none('DELETE FROM account WHERE id = '+ id);    
 }

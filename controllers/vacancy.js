@@ -44,10 +44,7 @@ exports.create = function(req, res) {
 exports.update = function(req, res) {
   vacancy.update(req.body)
       .then(function () {
-          res.status(204)
-          .json({
-            status: 'No content'
-          });
+          res.status(204);
         })
       .catch(function (err) {
           res.status(404)
@@ -63,10 +60,7 @@ exports.update = function(req, res) {
 exports.delete = function(req, res) {
   vacancy.delete(req.body)
       .then(function () {
-          res.status(204)
-          .json({
-            status: 'No content'
-          });
+          res.status(204);
         })
       .catch(function (err) {
           res.status(404)

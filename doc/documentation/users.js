@@ -30,7 +30,7 @@
                     "firstname": "Марк",
                     "lastname": "Багдасаров",
                     "farthername": null,
-                    "photo": null,
+                    "photo": url,
                     "post": null,
                     "status": "ищу проект",
                     "nickname": "2643",
@@ -46,7 +46,7 @@
                     "firstname": "Нателла",
                     "lastname": "Стрельникова",
                     "farthername": "Наумовна",
-                    "photo": null,
+                    "photo": url,
                     "post": null,
                     "status": "ищу команду",
                     "nickname": "198635",
@@ -258,10 +258,10 @@
 */
 
 /**
-* @api {put} http://api.flamingspace.sevsu.ru/users Обновить данные участника
+* @api {put} http://api.flamingspace.sevsu.ru/users/id Обновить данные участника
 * @apiName  PutUser
 * @apiGroup User 
-* @apiParam {Integer}    id                  ID
+* @apiParam {Integer}   id                  ID
 * @apiParam {String}    post                Положение"
 * @apiParam {String}    status              Статус
 * @apiParam {String}    nickname            Ник
@@ -281,7 +281,7 @@
 */
 
 /**
-* @api {delete} http://api.flamingspace.sevsu.ru/users Удалить информацию об участнике
+* @api {delete} http://api.flamingspace.sevsu.ru/users/id Удалить информацию об участнике
 * @apiName  DeleteUser
 * @apiGroup User
 * @apiParam {Integer}  id    ID участника

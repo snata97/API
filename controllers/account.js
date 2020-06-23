@@ -70,10 +70,7 @@ exports.findById = function(req, res) {
 exports.create = function(req, res) {
   account.create(req.body)
       .then(function () {
-          res.status(201)
-          .json({
-            status: 'created'
-          });
+          res.status(201);
         })
       .catch(function (err) {
           res.status(404)
@@ -87,12 +84,9 @@ exports.create = function(req, res) {
 };
 
 exports.update = function(req, res) {
-  account.update(req.body)
+  account.update(req.body,req.params.id)
       .then(function () {
-          res.status(204)
-          .json({
-            status: 'No content'
-          });
+          res.status(204);
         })
       .catch(function (err) {
           res.status(404)
@@ -106,12 +100,9 @@ exports.update = function(req, res) {
 };
 
 exports.delete = function(req, res) {
-  account.delete(req.body)
+  account.delete(req.params.id)
       .then(function () {
-          res.status(204)
-          .json({
-            status: 'No content'
-          });
+          res.status(204);
         })
       .catch(function (err) {
           res.status(404)

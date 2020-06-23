@@ -22,10 +22,7 @@ exports.create = function(req, res) {
 exports.update = function(req, res) {
   job.competence(req.body)
       .then(function () {
-          res.status(204)
-          .json({
-            status: 'No content'
-          });
+          res.status(204);
         })
       .catch(function (err) {
           res.status(404)
@@ -41,10 +38,7 @@ exports.update = function(req, res) {
 exports.delete = function(req, res) {
   job.competence(req.body)
       .then(function () {
-          res.status(204)
-          .json({
-            status: 'No content'
-          });
+          res.status(204);
         })
       .catch(function (err) {
           res.status(404)

@@ -3,10 +3,7 @@ var account_job = require('../models/account_job');
 exports.create = function(req, res) {
   account_job.create(req.body, req.params.userid, req.params.jobid, req.params.projectid)
       .then(function () {
-          res.status(204)
-          .json({
-            status: 'No content'
-          });
+          res.status(204);
         })
       .catch(function (err) {
           res.status(404)
@@ -22,10 +19,7 @@ exports.create = function(req, res) {
 exports.update = function(req, res) {
   account_job.update(req.body, req.params.userid, req.params.jobid, req.params.projectid)
       .then(function () {
-          res.status(204)
-          .json({
-            status: 'No content'
-          });
+          res.status(204);
         })
       .catch(function (err) {
           res.status(404)
@@ -41,10 +35,7 @@ exports.update = function(req, res) {
 exports.delete = function(req, res) {
   account_job.delete(req.params.userid, req.params.jobid, req.params.projectid)
       .then(function () {
-          res.status(204)
-          .json({
-            status: 'No content'
-          });
+          res.status(204);
         })
       .catch(function (err) {
           res.status(404)

@@ -44,7 +44,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "./documentation/projects.js",
+    "filename": "./doc/documentation/projects.js",
     "groupTitle": "Project"
   },
   {
@@ -72,7 +72,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "./documentation/projects.js",
+    "filename": "./doc/documentation/projects.js",
     "groupTitle": "Project"
   },
   {
@@ -120,7 +120,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "./documentation/projects.js",
+    "filename": "./doc/documentation/projects.js",
     "groupTitle": "Project"
   },
   {
@@ -175,7 +175,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "./documentation/projects.js",
+    "filename": "./doc/documentation/projects.js",
     "groupTitle": "Project"
   },
   {
@@ -237,7 +237,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "./documentation/projects.js",
+    "filename": "./doc/documentation/projects.js",
     "groupTitle": "Project"
   },
   {
@@ -510,7 +510,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "./documentation/projects.js",
+    "filename": "./doc/documentation/projects.js",
     "groupTitle": "Project"
   },
   {
@@ -658,7 +658,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "./documentation/projects.js",
+    "filename": "./doc/documentation/projects.js",
     "groupTitle": "Project"
   },
   {
@@ -843,7 +843,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "./documentation/projects.js",
+    "filename": "./doc/documentation/projects.js",
     "groupTitle": "Project"
   },
   {
@@ -919,7 +919,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "./documentation/projects.js",
+    "filename": "./doc/documentation/projects.js",
     "groupTitle": "Project"
   },
   {
@@ -1002,7 +1002,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "./documentation/projects.js",
+    "filename": "./doc/documentation/projects.js",
     "groupTitle": "Project"
   },
   {
@@ -1064,7 +1064,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "./documentation/projects.js",
+    "filename": "./doc/documentation/projects.js",
     "groupTitle": "Project"
   },
   {
@@ -1133,7 +1133,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "./documentation/projects.js",
+    "filename": "./doc/documentation/projects.js",
     "groupTitle": "Project"
   },
   {
@@ -1223,7 +1223,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "./documentation/projects.js",
+    "filename": "./doc/documentation/projects.js",
     "groupTitle": "Project"
   },
   {
@@ -1278,7 +1278,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "./documentation/projects.js",
+    "filename": "./doc/documentation/projects.js",
     "groupTitle": "Project"
   },
   {
@@ -1354,7 +1354,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "./documentation/projects.js",
+    "filename": "./doc/documentation/projects.js",
     "groupTitle": "Project"
   },
   {
@@ -1416,7 +1416,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "./documentation/users.js",
+    "filename": "./doc/documentation/users.js",
     "groupTitle": "User"
   },
   {
@@ -1478,12 +1478,12 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "./documentation/users.js",
+    "filename": "./doc/documentation/users.js",
     "groupTitle": "User"
   },
   {
     "type": "delete",
-    "url": "http://api.flamingspace.sevsu.ru/users",
+    "url": "http://api.flamingspace.sevsu.ru/users/id",
     "title": "Удалить информацию об участнике",
     "name": "DeleteUser",
     "group": "User",
@@ -1519,7 +1519,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "./documentation/users.js",
+    "filename": "./doc/documentation/users.js",
     "groupTitle": "User"
   },
   {
@@ -1764,7 +1764,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "./documentation/users.js",
+    "filename": "./doc/documentation/users.js",
     "groupTitle": "User"
   },
   {
@@ -1879,7 +1879,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": 2643,\n            \"firstname\": \"Марк\",\n            \"lastname\": \"Багдасаров\",\n            \"farthername\": null,\n            \"photo\": null,\n            \"post\": null,\n            \"status\": \"ищу проект\",\n            \"nickname\": \"2643\",\n            \"competences\": [\n                {\n                \"name\": \"Разработчик С++\",\n                \"level\": 1\n                }\n            ]\n        },\n        {\n            \"id\": 198635,\n            \"firstname\": \"Нателла\",\n            \"lastname\": \"Стрельникова\",\n            \"farthername\": \"Наумовна\",\n            \"photo\": null,\n            \"post\": null,\n            \"status\": \"ищу команду\",\n            \"nickname\": \"198635\",\n            \"competences\": [\n                {\n                \"name\": \"Разработчик JS\",\n                \"level\": 2\n                },\n                {\n                \"name\": \"Веб-разработчик\",\n                \"level\": 2\n                }\n            ]\n        }\n    ],\n    \"message\": \"Пользователи системы\"\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": 2643,\n            \"firstname\": \"Марк\",\n            \"lastname\": \"Багдасаров\",\n            \"farthername\": null,\n            \"photo\": url,\n            \"post\": null,\n            \"status\": \"ищу проект\",\n            \"nickname\": \"2643\",\n            \"competences\": [\n                {\n                \"name\": \"Разработчик С++\",\n                \"level\": 1\n                }\n            ]\n        },\n        {\n            \"id\": 198635,\n            \"firstname\": \"Нателла\",\n            \"lastname\": \"Стрельникова\",\n            \"farthername\": \"Наумовна\",\n            \"photo\": url,\n            \"post\": null,\n            \"status\": \"ищу команду\",\n            \"nickname\": \"198635\",\n            \"competences\": [\n                {\n                \"name\": \"Разработчик JS\",\n                \"level\": 2\n                },\n                {\n                \"name\": \"Веб-разработчик\",\n                \"level\": 2\n                }\n            ]\n        }\n    ],\n    \"message\": \"Пользователи системы\"\n}",
           "type": "json"
         }
       ]
@@ -1926,7 +1926,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "./documentation/users.js",
+    "filename": "./doc/documentation/users.js",
     "groupTitle": "User"
   },
   {
@@ -2118,7 +2118,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "./documentation/users.js",
+    "filename": "./doc/documentation/users.js",
     "groupTitle": "User"
   },
   {
@@ -2208,7 +2208,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "./documentation/users.js",
+    "filename": "./doc/documentation/users.js",
     "groupTitle": "User"
   },
   {
@@ -2277,7 +2277,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "./documentation/users.js",
+    "filename": "./doc/documentation/users.js",
     "groupTitle": "User"
   },
   {
@@ -2346,12 +2346,12 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "./documentation/users.js",
+    "filename": "./doc/documentation/users.js",
     "groupTitle": "User"
   },
   {
     "type": "put",
-    "url": "http://api.flamingspace.sevsu.ru/users",
+    "url": "http://api.flamingspace.sevsu.ru/users/id",
     "title": "Обновить данные участника",
     "name": "PutUser",
     "group": "User",
@@ -2408,7 +2408,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "./documentation/users.js",
+    "filename": "./doc/documentation/users.js",
     "groupTitle": "User"
   }
 ]

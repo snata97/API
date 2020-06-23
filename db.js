@@ -12,7 +12,7 @@ module.exports.connect = function(){
         return state.db;
     }
     else {
-        var connectionString = 'postgres://postgres:20fs20@127.0.0.1:5432/flamingspacedb';
+        var connectionString = process.env.DB_CONN;
         state.db = pgp(connectionString);
         return state.db;
     }

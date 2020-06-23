@@ -1,4 +1,5 @@
 const express = require("express");
+const router = express.Router();
 const accountController = require('./controllers/account');
 const accountContactController = require('./controllers/account_contact');
 const accountCompetenceController = require('./controllers/account_competence');
@@ -10,15 +11,14 @@ const projectEventController = require('./controllers/project_event');
 const projectVacancyController = require('./controllers/project_vacancy');
 const accountVacancyController = require('./controllers/account_vacancy');
 const accountJobController = require('./controllers/account_job');
-const router = express.Router();
 
 // '/users'
 router.get('/users', accountController.all);
 router.get('/users/:page/:limit', accountController.allPageLimit);
 router.get('/users/:id', accountController.findById);
 router.post('/users', accountController.create);
-router.put('/users', accountController.update);
-router.delete('/users', accountController.delete);
+router.put('/users/:id', accountController.update);
+router.delete('/users/:id', accountController.delete);
 router.put('/users/:userid/contacts', accountContactController.update);
 router.delete('/users/:userid/contacts', accountContactController.delete);
 router.put('/users/:userid/competences', accountCompetenceController.update);

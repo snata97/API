@@ -3,10 +3,7 @@ var project_event = require('../models/project_event');
 exports.create = function(req, res) {
   project_event.create(req.body)
       .then(function () {
-        res.status(204)
-        .json({
-          status: 'No content'
-        });
+        res.status(204);
       })
       .catch(function (err) {
           res.status(404)
@@ -22,10 +19,7 @@ exports.create = function(req, res) {
 exports.delete = function(req, res) {
   project_event.delete(req.body)
       .then(function () {
-          res.status(204)
-          .json({
-            status: 'No content'
-          });
+          res.status(204);
         })
       .catch(function (err) {
           res.status(404)
