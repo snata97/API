@@ -11,6 +11,11 @@ app.use(bodyParser.json());//Парсить данные json
 app.use(bodyParser.urlencoded({extended: true}));//Парсить данные формы
 
 app.use(cors({origin: '*'}));
+app.use(function (req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.set("Access-Control-Allow-Headers", "Content-Type");
+    next();
+  });
 app.use("/", routes);
 
 app.listen(3012, function(){
