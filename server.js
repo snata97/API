@@ -1,6 +1,6 @@
 require('dotenv').config();
 var express = require('express');
-var http = require('http');
+var cors = require('cors')
 var bodyParser = require('body-parser');
 var database = require('./db');
 var db = database.connect();
@@ -9,11 +9,8 @@ const routes = require('./routes');
 
 app.use(bodyParser.json());//Парсить данные json
 app.use(bodyParser.urlencoded({extended: true}));//Парсить данные формы
-app.use(function(req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-    next();
-});
+
+app.use(cors({origin: '*'}));
 app.use("/", routes);
 
 app.listen(3012, function(){
