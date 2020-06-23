@@ -7,6 +7,7 @@ var db = database.connect();
 var app = express();
 const routes = require('./routes');
 app.use(cors());
+app.options('*', cors());
 
 app.use(bodyParser.json());//Парсить данные json
 app.use(bodyParser.urlencoded({extended: true}));//Парсить данные формы
