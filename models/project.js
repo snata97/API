@@ -18,10 +18,10 @@ exports.findById = function (id) {
         return t.one('SELECT * FROM project WHERE id=${id}', {id: id})
             .then(function(){
                     return t.multi(
-                    'SELECT * FROM project WHERE id=${id};'+
-                    'SELECT acc.id, acc.firstname, acc.lastname, acc.fathername, acc.photo, array_to_json(array_agg(json_build_object(name,job.name))) as jobs FROM account_in_project AS acc_proj LEFT JOIN account AS acc ON acc_proj.accountid = acc.id LEFT JOIN job AS job ON acc_proj.jobid = job.id WHERE acc_proj.projectid=${id} GROUP BY acc.id;'+
-                    'SELECT vacancy.id, job.name, vacancy.description, vacancy.count FROM vacancy LEFT JOIN job AS job ON vacancy.jobid = job.id WHERE vacancy.projectid=${id};'+
-                    'SELECT event.id, event.name, event.photo, event.date FROM event LEFT JOIN project ON project.id = event.projectid WHERE event.projectid=${id};'
+                    `SELECT * FROM project WHERE id=${id};`+
+                    `SELECT acc.id, acc.firstname, acc.lastname, acc.fathername, acc.photo, array_to_json(array_agg(json_build_object('name',job.name))) as jobs FROM account_in_project AS acc_proj LEFT JOIN account AS acc ON acc_proj.accountid = acc.id LEFT JOIN job AS job ON acc_proj.jobid = job.id WHERE acc_proj.projectid=${id} GROUP BY acc.id;`+
+                    `SELECT vacancy.id, job.name, vacancy.description, vacancy.count FROM vacancy LEFT JOIN job AS job ON vacancy.jobid = job.id WHERE vacancy.projectid=${id};`+
+                    `SELECT event.id, event.name, event.photo, event.date FROM event LEFT JOIN project ON project.id = event.projectid WHERE event.projectid=${id};`
                     , {id: id})
             })
             .catch(function (err) {
