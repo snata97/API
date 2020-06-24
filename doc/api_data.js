@@ -7,14 +7,16 @@ define({ "api": [
     "group": "Project",
     "parameter": {
       "fields": {
-        "Parameter": [
+        "Параметры маршрута": [
           {
-            "group": "Parameter",
+            "group": "Параметры маршрута",
             "type": "Integer",
             "optional": false,
             "field": "projectid",
             "description": "<p>ID проекта</p>"
-          },
+          }
+        ],
+        "Parameter": [
           {
             "group": "Parameter",
             "type": "Integer",
@@ -29,35 +31,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 204 No Content\n{\n    \"status\": \"No content\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "error": {
-      "examples": [
-        {
-          "title": "Error-Response:",
-          "content": "HTTP/1.1 404 NOT FOUND\n{\n    status: 'error',\n    error: 'api_error',\n    error_code: 404,\n    error_description: error message\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "./doc/documentation/projects.js",
-    "groupTitle": "Project"
-  },
-  {
-    "type": "delete",
-    "url": "http://api.flamingspace.sevsu.ru/projects/edit/projectid/vacancies/vacancyid/userid",
-    "title": "Удалить заявку на вакансию в проекте",
-    "name": "DeleteEventProject",
-    "group": "Project",
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 204 No Content\n{\n    \"status\": \"No content\"\n}",
+          "content": "HTTP/1.1 204 No Content",
           "type": "json"
         }
       ]
@@ -83,16 +57,16 @@ define({ "api": [
     "group": "Project",
     "parameter": {
       "fields": {
-        "Parameter": [
+        "Параметры маршрута": [
           {
-            "group": "Parameter",
+            "group": "Параметры маршрута",
             "type": "Integer",
             "optional": false,
             "field": "projectid",
             "description": "<p>ID проекта</p>"
           },
           {
-            "group": "Parameter",
+            "group": "Параметры маршрута",
             "type": "Integer",
             "optional": false,
             "field": "userid",
@@ -105,7 +79,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 204 No Content\n{\n    \"status\": \"success\"\n}",
+          "content": "HTTP/1.1 204 No Content",
           "type": "json"
         }
       ]
@@ -131,23 +105,23 @@ define({ "api": [
     "group": "Project",
     "parameter": {
       "fields": {
-        "Parameter": [
+        "Параметры маршрута": [
           {
-            "group": "Parameter",
+            "group": "Параметры маршрута",
             "type": "Integer",
             "optional": false,
             "field": "projectid",
             "description": "<p>ID проекта</p>"
           },
           {
-            "group": "Parameter",
+            "group": "Параметры маршрута",
             "type": "Integer",
             "optional": false,
             "field": "jobid",
             "description": "<p>ID вакансии</p>"
           },
           {
-            "group": "Parameter",
+            "group": "Параметры маршрута",
             "type": "Integer",
             "optional": false,
             "field": "userid",
@@ -160,7 +134,62 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 204 No Content\n{\n    \"status\": \"No content\"\n}",
+          "content": "HTTP/1.1 204 No Content",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 404 NOT FOUND\n{\n    status: 'error',\n    error: 'api_error',\n    error_code: 404,\n    error_description: error message\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./doc/documentation/projects.js",
+    "groupTitle": "Project"
+  },
+  {
+    "type": "delete",
+    "url": "http://api.flamingspace.sevsu.ru/projects/edit/projectid/vacancies/vacancyid/userid",
+    "title": "Удалить заявку на вакансию в проекте",
+    "name": "DeleteProjectVacancyAccount",
+    "group": "Project",
+    "parameter": {
+      "fields": {
+        "Параметры маршрута": [
+          {
+            "group": "Параметры маршрута",
+            "type": "Integer",
+            "optional": false,
+            "field": "projectid",
+            "description": "<p>ID проекта</p>"
+          },
+          {
+            "group": "Параметры маршрута",
+            "type": "Integer",
+            "optional": false,
+            "field": "vacancyid",
+            "description": "<p>ID вакансии</p>"
+          },
+          {
+            "group": "Параметры маршрута",
+            "type": "Integer",
+            "optional": false,
+            "field": "userid",
+            "description": "<p>ID участника</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 204 No Content",
           "type": "json"
         }
       ]
@@ -186,14 +215,16 @@ define({ "api": [
     "group": "Project",
     "parameter": {
       "fields": {
-        "Parameter": [
+        "Параметры маршрута": [
           {
-            "group": "Parameter",
+            "group": "Параметры маршрута",
             "type": "Integer",
             "optional": false,
             "field": "projectid",
             "description": "<p>ID проекта</p>"
-          },
+          }
+        ],
+        "Parameter": [
           {
             "group": "Parameter",
             "type": "Object[]",
@@ -222,7 +253,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 204 No Content\n{\n    \"status\": \"No content\"\n}",
+          "content": "HTTP/1.1 204 No Content",
           "type": "json"
         }
       ]
@@ -248,10 +279,9 @@ define({ "api": [
     "group": "Project",
     "parameter": {
       "fields": {
-        "Parameter": [
+        "Параметры маршрута": [
           {
-            "group": "Parameter",
-            "type": "Integer",
+            "group": "Параметры маршрута",
             "optional": false,
             "field": "id",
             "description": "<p>ID проекта</p>"
@@ -611,7 +641,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 ОК\n{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"Иванушки\",\n            \"category\": \"IT\",\n            \"description\": \"Повседневная практика показывает, что сплочённость команды профессионалов требует определения и уточнения системы массового участия! Мы вынуждены отталкиваться от того, что сложившаяся структура организации, а также свежий взгляд на привычные вещи - безусловно открывает новые горизонты для поэтапного и последовательного развития общества. Следует отметить, что базовый вектор развития однозначно определяет каждого участника как способного принимать собственные решения касаемо прогресса профессионального сообщества.\",\n            \"status\": \"набор\",\n            \"projectstart\": \"2020-05-29T21:00:00.000Z\",\n            \"projectend\": null,\n            \"vacancies\": [\n                {\n                \"name\": \"Разработчик JS\"\n                },\n                {\n                \"name\": \"Куратор\"\n                }\n            ]\n        },\n        {\n            \"id\": 3,\n            \"name\": \"Коробейники\",\n            \"category\": \"Культура\",\n            \"description\": \"Практический опыт показывает, что новая модель организационной деятельности способствует повышению актуальности форм воздействия? Разнообразный и богатый опыт выбранный нами инновационный путь требует от нас анализа системы масштабного изменения ряда параметров. Задача организации, в особенности же повышение уровня гражданского сознания представляет собой интересный эксперимент проверки системы обучения кадров, соответствующей насущным потребностям? Задача организации, в особенности же повышение уровня гражданского сознания позволяет выполнить важнейшие задания по разработке дальнейших направлений развитая системы массового участия. Не следует, однако, забывать о том, что новая модель организационной деятельности способствует повышению актуальности системы масштабного изменения ряда параметров. Соображения высшего порядка, а также повышение уровня гражданского сознания представляет собой интересный эксперимент проверки форм воздействия.\",\n            \"status\": \"набор\",\n            \"projectstart\": \"2020-06-14T21:00:00.000Z\",\n            \"projectend\": null,\n            \"vacancies\": [\n                {\n                \"name\": \"Разработчик JS\"\n                },\n                {\n                \"name\": \"Дизайнер\"\n                }\n            ]\n        }\n    ],\n    \"message\": \"Пользователи системы\"\n}",
+          "content": "HTTP/1.1 200 ОК\n{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"Иванушки\",\n            \"category\": \"IT\",\n            \"description\": \"Повседневная практика показывает, что сплочённость команды профессионалов требует определения и уточнения системы массового участия! Мы вынуждены отталкиваться от того, что сложившаяся структура организации, а также свежий взгляд на привычные вещи - безусловно открывает новые горизонты для поэтапного и последовательного развития общества. Следует отметить, что базовый вектор развития однозначно определяет каждого участника как способного принимать собственные решения касаемо прогресса профессионального сообщества.\",\n            \"status\": \"набор\",\n            \"projectstart\": \"2020-05-29T21:00:00.000Z\",\n            \"projectend\": null,\n            \"vacancies\": [\n                {\n                \"id\": 3,\n                \"name\": \"Разработчик JS\"\n                },\n                {\n                \"id\":2,\n                \"name\": \"Куратор\"\n                }\n            ]\n        },\n        {\n            \"id\": 3,\n            \"name\": \"Коробейники\",\n            \"category\": \"Культура\",\n            \"description\": \"Практический опыт показывает, что новая модель организационной деятельности способствует повышению актуальности форм воздействия? Разнообразный и богатый опыт выбранный нами инновационный путь требует от нас анализа системы масштабного изменения ряда параметров. Задача организации, в особенности же повышение уровня гражданского сознания представляет собой интересный эксперимент проверки системы обучения кадров, соответствующей насущным потребностям? Задача организации, в особенности же повышение уровня гражданского сознания позволяет выполнить важнейшие задания по разработке дальнейших направлений развитая системы массового участия. Не следует, однако, забывать о том, что новая модель организационной деятельности способствует повышению актуальности системы масштабного изменения ряда параметров. Соображения высшего порядка, а также повышение уровня гражданского сознания представляет собой интересный эксперимент проверки форм воздействия.\",\n            \"status\": \"набор\",\n            \"projectstart\": \"2020-06-14T21:00:00.000Z\",\n            \"projectend\": null,\n            \"vacancies\": [\n                {\n                \"id\":3,\n                \"name\": \"Разработчик JS\"\n                },\n                {\n                \"id\":5,   \n                \"name\": \"Дизайнер\"\n                }\n            ]\n        }\n    ],\n    \"message\": \"Пользователи системы\"\n}",
           "type": "json"
         }
       ]
@@ -667,23 +697,25 @@ define({ "api": [
     "title": "Получить проекты постранично и с фильтрацией",
     "name": "GetProjectsFilter",
     "group": "Project",
-    "success": {
+    "parameter": {
       "fields": {
-        "Параметр": [
+        "Параметры маршрута": [
           {
-            "group": "Параметр",
+            "group": "Параметры маршрута",
             "type": "Integer",
             "optional": false,
             "field": "page",
             "description": "<p>Номер страницы</p>"
           },
           {
-            "group": "Параметр",
+            "group": "Параметры маршрута",
             "type": "Integer",
             "optional": false,
             "field": "limit",
             "description": "<p>Количество элементов</p>"
-          },
+          }
+        ],
+        "Параметр": [
           {
             "group": "Параметр",
             "type": "String",
@@ -705,7 +737,11 @@ define({ "api": [
             "field": "status",
             "description": "<p>Поиск по статусу</p>"
           }
-        ],
+        ]
+      }
+    },
+    "success": {
+      "fields": {
         "Success 200": [
           {
             "group": "Success 200",
@@ -796,7 +832,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 ОК\n{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"Иванушки\",\n            \"category\": \"IT\",\n            \"description\": \"Повседневная практика показывает, что сплочённость команды профессионалов требует определения и уточнения системы массового участия! Мы вынуждены отталкиваться от того, что сложившаяся структура организации, а также свежий взгляд на привычные вещи - безусловно открывает новые горизонты для поэтапного и последовательного развития общества. Следует отметить, что базовый вектор развития однозначно определяет каждого участника как способного принимать собственные решения касаемо прогресса профессионального сообщества.\",\n            \"status\": \"набор\",\n            \"projectstart\": \"2020-05-29T21:00:00.000Z\",\n            \"projectend\": null,\n            \"vacancies\": [\n                {\n                \"name\": \"Разработчик JS\"\n                },\n                {\n                \"name\": \"Куратор\"\n                }\n            ]\n        },\n        {\n            \"id\": 3,\n            \"name\": \"Коробейники\",\n            \"category\": \"Культура\",\n            \"description\": \"Практический опыт показывает, что новая модель организационной деятельности способствует повышению актуальности форм воздействия? Разнообразный и богатый опыт выбранный нами инновационный путь требует от нас анализа системы масштабного изменения ряда параметров. Задача организации, в особенности же повышение уровня гражданского сознания представляет собой интересный эксперимент проверки системы обучения кадров, соответствующей насущным потребностям? Задача организации, в особенности же повышение уровня гражданского сознания позволяет выполнить важнейшие задания по разработке дальнейших направлений развитая системы массового участия. Не следует, однако, забывать о том, что новая модель организационной деятельности способствует повышению актуальности системы масштабного изменения ряда параметров. Соображения высшего порядка, а также повышение уровня гражданского сознания представляет собой интересный эксперимент проверки форм воздействия.\",\n            \"status\": \"набор\",\n            \"projectstart\": \"2020-06-14T21:00:00.000Z\",\n            \"projectend\": null,\n            \"vacancies\": [\n                {\n                \"name\": \"Разработчик JS\"\n                },\n                {\n                \"name\": \"Дизайнер\"\n                }\n            ]\n        }\n    ],\n    \"message\": \"Пользователи системы\"\n}",
+          "content": "HTTP/1.1 200 ОК\n{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"Иванушки\",\n            \"category\": \"IT\",\n            \"description\": \"Повседневная практика показывает, что сплочённость команды профессионалов требует определения и уточнения системы массового участия! Мы вынуждены отталкиваться от того, что сложившаяся структура организации, а также свежий взгляд на привычные вещи - безусловно открывает новые горизонты для поэтапного и последовательного развития общества. Следует отметить, что базовый вектор развития однозначно определяет каждого участника как способного принимать собственные решения касаемо прогресса профессионального сообщества.\",\n            \"status\": \"набор\",\n            \"projectstart\": \"2020-05-29T21:00:00.000Z\",\n            \"projectend\": null,\n            \"vacancies\": [\n                {\n                \"id\": 3,\n                \"name\": \"Разработчик JS\"\n                },\n                {\n                \"id\":2,\n                \"name\": \"Куратор\"\n                }\n            ]\n        },\n        {\n            \"id\": 3,\n            \"name\": \"Коробейники\",\n            \"category\": \"Культура\",\n            \"description\": \"Практический опыт показывает, что новая модель организационной деятельности способствует повышению актуальности форм воздействия? Разнообразный и богатый опыт выбранный нами инновационный путь требует от нас анализа системы масштабного изменения ряда параметров. Задача организации, в особенности же повышение уровня гражданского сознания представляет собой интересный эксперимент проверки системы обучения кадров, соответствующей насущным потребностям? Задача организации, в особенности же повышение уровня гражданского сознания позволяет выполнить важнейшие задания по разработке дальнейших направлений развитая системы массового участия. Не следует, однако, забывать о том, что новая модель организационной деятельности способствует повышению актуальности системы масштабного изменения ряда параметров. Соображения высшего порядка, а также повышение уровня гражданского сознания представляет собой интересный эксперимент проверки форм воздействия.\",\n            \"status\": \"набор\",\n            \"projectstart\": \"2020-06-14T21:00:00.000Z\",\n            \"projectend\": null,\n            \"vacancies\": [\n                {\n                \"id\":3,\n                \"name\": \"Разработчик JS\"\n                },\n                {\n                \"id\":5,   \n                \"name\": \"Дизайнер\"\n                }\n            ]\n        }\n    ],\n    \"message\": \"Пользователи системы\"\n}",
           "type": "json"
         }
       ]
@@ -854,14 +890,16 @@ define({ "api": [
     "group": "Project",
     "parameter": {
       "fields": {
-        "Parameter": [
+        "Параметры маршрута": [
           {
-            "group": "Parameter",
+            "group": "Параметры маршрута",
             "type": "Integer",
             "optional": false,
             "field": "projectid",
             "description": "<p>ID проекта</p>"
-          },
+          }
+        ],
+        "Parameter": [
           {
             "group": "Parameter",
             "type": "Integer",
@@ -904,7 +942,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 204 No Content\n{\n    \"status\": \"No content\"\n}",
+          "content": "HTTP/1.1 204 No Content",
           "type": "json"
         }
       ]
@@ -930,14 +968,16 @@ define({ "api": [
     "group": "Project",
     "parameter": {
       "fields": {
-        "Parameter": [
+        "Параметры маршрута": [
           {
-            "group": "Parameter",
+            "group": "Параметры маршрута",
             "type": "Integer",
             "optional": false,
             "field": "userid",
             "description": "<p>ID создателя проекта</p>"
-          },
+          }
+        ],
+        "Parameter": [
           {
             "group": "Parameter",
             "type": "String",
@@ -1013,28 +1053,30 @@ define({ "api": [
     "group": "Project",
     "parameter": {
       "fields": {
-        "Parameter": [
+        "Параметры маршрута": [
           {
-            "group": "Parameter",
+            "group": "Параметры маршрута",
             "type": "Integer",
             "optional": false,
             "field": "projectid",
             "description": "<p>ID проекта</p>"
           },
           {
-            "group": "Parameter",
+            "group": "Параметры маршрута",
             "type": "Integer",
             "optional": false,
             "field": "jobid",
             "description": "<p>ID вакансии</p>"
           },
           {
-            "group": "Parameter",
+            "group": "Параметры маршрута",
             "type": "Integer",
             "optional": false,
             "field": "userid",
             "description": "<p>ID участника</p>"
-          },
+          }
+        ],
+        "Parameter": [
           {
             "group": "Parameter",
             "type": "String",
@@ -1075,28 +1117,30 @@ define({ "api": [
     "group": "Project",
     "parameter": {
       "fields": {
-        "Parameter": [
+        "Параметры маршрута": [
           {
-            "group": "Parameter",
+            "group": "Параметры маршрута",
             "type": "Integer",
             "optional": false,
             "field": "projectid",
             "description": "<p>ID проекта</p>"
           },
           {
-            "group": "Parameter",
+            "group": "Параметры маршрута",
             "type": "Integer",
             "optional": false,
             "field": "vacancyid",
             "description": "<p>ID вакансии</p>"
           },
           {
-            "group": "Parameter",
+            "group": "Параметры маршрута",
             "type": "Integer",
             "optional": false,
             "field": "userid",
             "description": "<p>ID участника</p>"
-          },
+          }
+        ],
+        "Parameter": [
           {
             "group": "Parameter",
             "type": "String",
@@ -1144,21 +1188,23 @@ define({ "api": [
     "group": "Project",
     "parameter": {
       "fields": {
-        "Parameter": [
+        "Параметры маршрута": [
           {
-            "group": "Parameter",
+            "group": "Параметры маршрута",
             "type": "Integer",
             "optional": false,
             "field": "projectid",
             "description": "<p>ID проекта</p>"
           },
           {
-            "group": "Parameter",
+            "group": "Параметры маршрута",
             "type": "Integer",
             "optional": false,
             "field": "userid",
             "description": "<p>ID участника</p>"
-          },
+          }
+        ],
+        "Parameter": [
           {
             "group": "Parameter",
             "type": "String",
@@ -1208,7 +1254,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 204 No Content\n{\n    \"status\": \"success\"\n}",
+          "content": "HTTP/1.1 204 No Content",
           "type": "json"
         }
       ]
@@ -1234,23 +1280,23 @@ define({ "api": [
     "group": "Project",
     "parameter": {
       "fields": {
-        "Parameter": [
+        "Параметры маршрута": [
           {
-            "group": "Parameter",
+            "group": "Параметры маршрута",
             "type": "Integer",
             "optional": false,
             "field": "projectid",
             "description": "<p>ID проекта</p>"
           },
           {
-            "group": "Parameter",
+            "group": "Параметры маршрута",
             "type": "Integer",
             "optional": false,
             "field": "jobid",
             "description": "<p>ID вакансии</p>"
           },
           {
-            "group": "Parameter",
+            "group": "Параметры маршрута",
             "type": "Integer",
             "optional": false,
             "field": "userid",
@@ -1263,7 +1309,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 204 No Content\n{\n    \"status\": \"No content\"\n}",
+          "content": "HTTP/1.1 204 No Content",
           "type": "json"
         }
       ]
@@ -1289,14 +1335,16 @@ define({ "api": [
     "group": "Project",
     "parameter": {
       "fields": {
-        "Parameter": [
+        "Параметры маршрута": [
           {
-            "group": "Parameter",
+            "group": "Параметры маршрута",
             "type": "Integer",
             "optional": false,
             "field": "projectid",
             "description": "<p>ID проекта</p>"
-          },
+          }
+        ],
+        "Parameter": [
           {
             "group": "Parameter",
             "type": "Object[]",
@@ -1339,7 +1387,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 204 No Content\n{\n    \"status\": \"No content\"\n}",
+          "content": "HTTP/1.1 204 No Content",
           "type": "json"
         }
       ]
@@ -1365,14 +1413,16 @@ define({ "api": [
     "group": "User",
     "parameter": {
       "fields": {
-        "Parameter": [
+        "Параметры маршрута": [
           {
-            "group": "Parameter",
+            "group": "Параметры маршрута",
             "type": "Integer",
             "optional": false,
             "field": "userid",
             "description": "<p>ID участника</p>"
-          },
+          }
+        ],
+        "Parameter": [
           {
             "group": "Parameter",
             "type": "Object[]",
@@ -1401,7 +1451,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 204 No Content\n{\n    \"status\": \"No content\"\n}",
+          "content": "HTTP/1.1 204 No Content",
           "type": "json"
         }
       ]
@@ -1427,14 +1477,16 @@ define({ "api": [
     "group": "User",
     "parameter": {
       "fields": {
-        "Parameter": [
+        "Параметры маршрута": [
           {
-            "group": "Parameter",
+            "group": "Параметры маршрута",
             "type": "Integer",
             "optional": false,
             "field": "userid",
             "description": "<p>ID участника</p>"
-          },
+          }
+        ],
+        "Parameter": [
           {
             "group": "Parameter",
             "type": "Object[]",
@@ -1463,7 +1515,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 204 No Content\n{\n    \"status\": \"No content\"\n}",
+          "content": "HTTP/1.1 204 No Content",
           "type": "json"
         }
       ]
@@ -1489,9 +1541,9 @@ define({ "api": [
     "group": "User",
     "parameter": {
       "fields": {
-        "Parameter": [
+        "Параметры маршрута": [
           {
-            "group": "Parameter",
+            "group": "Параметры маршрута",
             "type": "Integer",
             "optional": false,
             "field": "id",
@@ -1504,7 +1556,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 204 No Content\n{\n    \"status\": \"No content\"\n}",
+          "content": "HTTP/1.1 204 No Content",
           "type": "json"
         }
       ]
@@ -1530,9 +1582,9 @@ define({ "api": [
     "group": "User",
     "parameter": {
       "fields": {
-        "Parameter": [
+        "Параметры маршрута": [
           {
-            "group": "Parameter",
+            "group": "Параметры маршрута",
             "type": "Integer",
             "optional": false,
             "field": "id",
@@ -1935,23 +1987,25 @@ define({ "api": [
     "title": "Получить пользователей постранично и с фильтрацией",
     "name": "GetUsersFilter",
     "group": "User",
-    "success": {
+    "parameter": {
       "fields": {
-        "Параметр": [
+        "Параметры маршрута": [
           {
-            "group": "Параметр",
+            "group": "Параметры маршрута",
             "type": "Integer",
             "optional": false,
             "field": "page",
             "description": "<p>Номер страницы</p>"
           },
           {
-            "group": "Параметр",
+            "group": "Параметры маршрута",
             "type": "Integer",
             "optional": false,
             "field": "limit",
             "description": "<p>Количество элементов</p>"
-          },
+          }
+        ],
+        "Параметр": [
           {
             "group": "Параметр",
             "type": "String",
@@ -1966,7 +2020,11 @@ define({ "api": [
             "field": "status",
             "description": "<p>Поиск по статусу участника</p>"
           }
-        ],
+        ]
+      }
+    },
+    "success": {
+      "fields": {
         "Success 200": [
           {
             "group": "Success 200",
@@ -2219,14 +2277,16 @@ define({ "api": [
     "group": "User",
     "parameter": {
       "fields": {
-        "Parameter": [
+        "Параметры маршрута": [
           {
-            "group": "Parameter",
+            "group": "Параметры маршрута",
             "type": "Integer",
             "optional": false,
             "field": "userid",
             "description": "<p>ID участника</p>"
-          },
+          }
+        ],
+        "Parameter": [
           {
             "group": "Parameter",
             "type": "Object[]",
@@ -2262,7 +2322,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 204 No Content\n{\n    \"status\": \"No content\"\n}",
+          "content": "HTTP/1.1 204 No Content",
           "type": "json"
         }
       ]
@@ -2288,14 +2348,16 @@ define({ "api": [
     "group": "User",
     "parameter": {
       "fields": {
-        "Parameter": [
+        "Параметры маршрута": [
           {
-            "group": "Parameter",
+            "group": "Параметры маршрута",
             "type": "Integer",
             "optional": false,
             "field": "userid",
             "description": "<p>ID участника</p>"
-          },
+          }
+        ],
+        "Parameter": [
           {
             "group": "Parameter",
             "type": "Object[]",
@@ -2331,7 +2393,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 204 No Content\n{\n    \"status\": \"No content\"\n}",
+          "content": "HTTP/1.1 204 No Content",
           "type": "json"
         }
       ]
@@ -2357,14 +2419,16 @@ define({ "api": [
     "group": "User",
     "parameter": {
       "fields": {
-        "Parameter": [
+        "Параметры маршрута": [
           {
-            "group": "Parameter",
+            "group": "Параметры маршрута",
             "type": "Integer",
             "optional": false,
             "field": "id",
             "description": "<p>ID</p>"
-          },
+          }
+        ],
+        "Parameter": [
           {
             "group": "Parameter",
             "type": "String",
@@ -2393,7 +2457,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 204 No Content\n{\n    \"status\": \"No content\"\n}",
+          "content": "HTTP/1.1 204 No Content",
           "type": "json"
         }
       ]

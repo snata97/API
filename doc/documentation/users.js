@@ -77,10 +77,10 @@
 * @api {get} http://api.flamingspace.sevsu.ru/users/page/limit Получить пользователей постранично и с фильтрацией
 * @apiName GetUsersFilter
 * @apiGroup User
-* @apiSuccess (Параметр) {Integer}      page                    Номер страницы           
-* @apiSuccess (Параметр) {Integer}      limit                   Количество элементов
-* @apiSuccess (Параметр) {String}       [fio]                   Поиск по фамилии и имени            
-* @apiSuccess (Параметр) {String}       [status]                Поиск по статусу участника
+* @apiParam (Параметры маршрута) {Integer}      page                    Номер страницы           
+* @apiParam (Параметры маршрута) {Integer}      limit                   Количество элементов
+* @apiParam (Параметр) {String}       [fio]                   Поиск по фамилии и имени            
+* @apiParam (Параметр) {String}       [status]                Поиск по статусу участника
 * @apiSuccess (Success 200) {String}    status                  Статус запроса
 * @apiSuccess (Success 200) {Object[]}  data                    Список с участниками
 * @apiSuccess (Success 200) {Integer}    data.id                 ID
@@ -140,7 +140,7 @@
 * @api {get} http://api.flamingspace.sevsu.ru/users/id Получить информацию пользователя по ID
 * @apiName GetUserID
 * @apiGroup User
-* @apiParam  {Integer} id   ID участника
+* @apiParam (Параметры маршрута)  {Integer} id   ID участника
 * @apiSuccess (Success 200) {String}    status                  Статус запроса
 * @apiSuccess (Success 200) {Object[]}  data                    Данные
 * @apiSuccess (Success 200) {Object[]}  data.info               Информация аккаунта
@@ -261,15 +261,12 @@
 * @api {put} http://api.flamingspace.sevsu.ru/users/id Обновить данные участника
 * @apiName  PutUser
 * @apiGroup User 
-* @apiParam {Integer}   id                  ID
+* @apiParam (Параметры маршрута) {Integer}   id                  ID
 * @apiParam {String}    post                Положение"
 * @apiParam {String}    status              Статус
 * @apiParam {String}    nickname            Ник
 * @apiSuccessExample {json} Success-Response:
         HTTP/1.1 204 No Content
-        {
-            "status": "No content"
-        }
 * @apiErrorExample {json} Error-Response:
         HTTP/1.1 404 NOT FOUND
         {
@@ -284,12 +281,9 @@
 * @api {delete} http://api.flamingspace.sevsu.ru/users/id Удалить информацию об участнике
 * @apiName  DeleteUser
 * @apiGroup User
-* @apiParam {Integer}  id    ID участника
+* @apiParam (Параметры маршрута) {Integer}  id    ID участника
 * @apiSuccessExample {json} Success-Response:
         HTTP/1.1 204 No Content
-        {
-            "status": "No content"
-        }
 * @apiErrorExample {json} Error-Response:
         HTTP/1.1 404 NOT FOUND
         {
@@ -304,7 +298,7 @@
 * @api {put} http://api.flamingspace.sevsu.ru/users/userid/contacts Добавить или обновить контакты участника
 * @apiName  PutContact
 * @apiGroup User 
-* @apiParam {Integer}       userid                  ID участника
+* @apiParam (Параметры маршрута) {Integer}       userid                  ID участника
 * @apiParam {Object[]}      contacts                Контакты
 * @apiParam {Integer}       contactid               ID
 * @apiParam {String}        url                     URL
@@ -323,9 +317,6 @@
     }
 * @apiSuccessExample {json} Success-Response:
         HTTP/1.1 204 No Content
-        {
-            "status": "No content"
-        }
 * @apiErrorExample {json} Error-Response:
         HTTP/1.1 404 NOT FOUND
         {
@@ -340,7 +331,7 @@
 * @api {delete} http://api.flamingspace.sevsu.ru/users/userid/contacts Удалить контакты участника
 * @apiName  DeleteContact
 * @apiGroup User 
-* @apiParam {Integer}        userid                  ID участника
+* @apiParam (Параметры маршрута) {Integer}        userid                  ID участника
 * @apiParam {Object[]}       contacts                Контакты
 * @apiParam {Integer}        contactid               ID
 * @apiParamExample {json} Request-Example:
@@ -356,9 +347,6 @@
     }
 * @apiSuccessExample {json} Success-Response:
         HTTP/1.1 204 No Content
-        {
-            "status": "No content"
-        }
 * @apiErrorExample {json} Error-Response:
         HTTP/1.1 404 NOT FOUND
         {
@@ -373,7 +361,7 @@
 * @api {put} http://api.flamingspace.sevsu.ru/users/userid/competences Добавить или обновить компетенции участника
 * @apiName  PutCompetence
 * @apiGroup User 
-* @apiParam {Integer}        userid               ID участника
+* @apiParam (Параметры маршрута) {Integer}        userid               ID участника
 * @apiParam {Object[]}       competences             Компетенции
 * @apiParam {Integer}        competenceid            ID
 * @apiParam {Integer}        level                   Уровень
@@ -392,9 +380,6 @@
     }
 * @apiSuccessExample {json} Success-Response:
         HTTP/1.1 204 No Content
-        {
-            "status": "No content"
-        }
 * @apiErrorExample {json} Error-Response:
         HTTP/1.1 404 NOT FOUND
         {
@@ -409,7 +394,7 @@
 * @api {delete} http://api.flamingspace.sevsu.ru/users/userid/competences Удалить компетенции участника
 * @apiName  DeleteCompetence
 * @apiGroup User 
-* @apiParam {Integer}        userid                  ID участника
+* @apiParam (Параметры маршрута) {Integer}        userid                  ID участника
 * @apiParam {Object[]}       competences             Компетенции
 * @apiParam {Integer}        competenceid            ID
 * @apiParamExample {json} Request-Example:
@@ -425,9 +410,6 @@
     }
 * @apiSuccessExample {json} Success-Response:
         HTTP/1.1 204 No Content
-        {
-            "status": "No content"
-        }
 * @apiErrorExample {json} Error-Response:
         HTTP/1.1 404 NOT FOUND
         {

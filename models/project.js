@@ -4,7 +4,7 @@ var db = database.connect();
 exports.all = function () {
     return db.any(`
         SELECT proj.*, 
-            array_to_json(array_agg(json_build_object('name',vac_table.name))) as vacancies
+            array_to_json(array_agg(json_build_object('id',vac_table.jobid, 'name',vac_table.name))) as vacancies
         FROM project AS proj 
         LEFT JOIN (vacancy LEFT JOIN job
         ON vacancy.jobid=job.id) AS vac_table 
@@ -41,7 +41,7 @@ exports.allPageLimit = function (page, limit, req) {
     }
     return db.any(`
         SELECT proj.*, 
-               array_to_json(array_agg(json_build_object('name',vac_table.name))) as vacancies
+               array_to_json(array_agg(json_build_object('id',vac_table.jobid,'name',vac_table.name))) as vacancies
         FROM project AS proj 
         LEFT JOIN (vacancy
         LEFT JOIN job

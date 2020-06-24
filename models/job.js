@@ -16,17 +16,6 @@ exports.create = function (body) {
     );    
 }
 
-//ЗАПРОС НА СОЗДАНИЕ
-// {
-// 	"jobs":[
-// 		{
-// 			"name": "Разработчик С++"
-// 		},
-// 		{
-// 			"name": "Разработчик Python"
-// 		}
-// 	]
-// }
 exports.update = function (body) {
     let job = body.jobs;
     let queries = [];
@@ -47,20 +36,6 @@ exports.update = function (body) {
     );    
 }
 
-//ЗАПРОС НА ОБНОВЛЕНИЕ
-// {
-// 	"jobs":[
-// 		{
-// 			"id": 6,
-// 			"name": "Разработчик С++"
-// 		},
-// 		{
-// 			"id": 7,
-// 			"name": "Разработчик Python"
-// 		}
-// 	]
-// }
-
 exports.delete = function (body) {
     let job = body.jobs;
     let queries = [];
@@ -75,15 +50,3 @@ exports.delete = function (body) {
         queries.join(";")
     );    
 }
-
-//УДАЛЕНИЕ
-// {
-// 	"jobs":[
-// 		{
-// 			"id": 6
-// 		},
-// 		{
-// 			"id": 7
-// 		}
-// 	]
-// }

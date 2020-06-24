@@ -33,9 +33,11 @@
                     "projectend": null,
                     "vacancies": [
                         {
+                        "id": 3,
                         "name": "Разработчик JS"
                         },
                         {
+                        "id":2,
                         "name": "Куратор"
                         }
                     ]
@@ -50,9 +52,11 @@
                     "projectend": null,
                     "vacancies": [
                         {
+                        "id":3,
                         "name": "Разработчик JS"
                         },
                         {
+                        "id":5,   
                         "name": "Дизайнер"
                         }
                     ]
@@ -73,11 +77,11 @@
 * @api {get} http://api.flamingspace.sevsu.ru/projects/page/limit Получить проекты постранично и с фильтрацией
 * @apiName GetProjectsFilter
 * @apiGroup Project
-* @apiSuccess (Параметр) {Integer}      page                    Номер страницы           
-* @apiSuccess (Параметр) {Integer}      limit                   Количество элементов
-* @apiSuccess (Параметр) {String}       [name]                  Поиск по наименованию
-* @apiSuccess (Параметр) {String}       [category]              Поиск по категории          
-* @apiSuccess (Параметр) {String}       [status]                Поиск по статусу
+* @apiParam   (Параметры маршрута) {Integer}      page                    Номер страницы           
+* @apiParam   (Параметры маршрута) {Integer}      limit                   Количество элементов
+* @apiParam   (Параметр) {String}       [name]                  Поиск по наименованию
+* @apiParam   (Параметр) {String}       [category]              Поиск по категории          
+* @apiParam   (Параметр) {String}       [status]                Поиск по статусу
 * @apiSuccess (Success 200) {String}    status                  Статус запроса
 * @apiSuccess (Success 200) {Object[]}  data                    Список с проектами
 * @apiSuccess (Success 200) {Integer}    data.id                 ID
@@ -109,9 +113,11 @@
                     "projectend": null,
                     "vacancies": [
                         {
+                        "id": 3,
                         "name": "Разработчик JS"
                         },
                         {
+                        "id":2,
                         "name": "Куратор"
                         }
                     ]
@@ -126,9 +132,11 @@
                     "projectend": null,
                     "vacancies": [
                         {
+                        "id":3,
                         "name": "Разработчик JS"
                         },
                         {
+                        "id":5,   
                         "name": "Дизайнер"
                         }
                     ]
@@ -149,10 +157,10 @@
 * @api {get} http://api.flamingspace.sevsu.ru/projects/id Получить проект по ID
 * @apiName    GetProjectID
 * @apiGroup   Project
-* @apiParam   {Integer}  id    ID проекта
+* @apiParam   (Параметры маршрута)  id    ID проекта
 * @apiSuccess (Success 200) {String}    status                          Статус запроса
 * @apiSuccess (Success 200) {Object[]}  data                            Данные
-* @apiSuccess (Success 200) {Integer}   data.id                        ID
+* @apiSuccess (Success 200) {Integer}   data.id                         ID
 * @apiSuccess (Success 200) {String}    data.name                       Наименование
 * @apiSuccess (Success 200) {String}    data.category                   Категория
 * @apiSuccess (Success 200) {String}    data.description                Описание 
@@ -246,8 +254,8 @@
 * @api {post} http://api.flamingspace.sevsu.ru/projects/edit/userid Создать проект
 * @apiName  PostProject
 * @apiGroup Project 
-* @apiParam {Integer}   userid                     ID создателя проекта
-* @apiParam {String}    name                       Наименование
+* @apiParam   (Параметры маршрута) {Integer}   userid                     ID создателя проекта
+* @apiParam  {String}    name                       Наименование
 * @apiParam {String}    category                   Категория
 * @apiParam {String}    description                Описание 
 * @apiParam {String}    status                     Статус
@@ -272,8 +280,8 @@
 * @api {put} http://api.flamingspace.sevsu.ru/projects/edit/projectid/userid Обновить проект
 * @apiName  PutProject
 * @apiGroup Project 
-* @apiParam {Integer}   projectid                  ID проекта
-* @apiParam {Integer}   userid                     ID участника
+* @apiParam   (Параметры маршрута) {Integer}   projectid                  ID проекта
+* @apiParam   (Параметры маршрута) {Integer}   userid                     ID участника
 * @apiParam {String}    name                       Наименование
 * @apiParam {String}    category                   Категория
 * @apiParam {String}    description                Описание 
@@ -282,9 +290,6 @@
 * @apiParam {Date}      projectend                 Дата окончания проекта
 * @apiSuccessExample {json} Success-Response:
         HTTP/1.1 204 No Content
-        {
-            "status": "success"
-        }
 * @apiErrorExample {json} Error-Response:
         HTTP/1.1 404 NOT FOUND
         {
@@ -300,13 +305,10 @@
 * @api {delete} http://api.flamingspace.sevsu.ru/projects/edit/projectid/userid Удалить проект
 * @apiName  DeleteProject
 * @apiGroup Project
-* @apiParam {Integer}   projectid                  ID проекта
-* @apiParam {Integer}   userid                     ID участника
+* @apiParam   (Параметры маршрута) {Integer}   projectid                  ID проекта
+* @apiParam   (Параметры маршрута) {Integer}   userid                     ID участника
 * @apiSuccessExample {json} Success-Response:
         HTTP/1.1 204 No Content
-        {
-            "status": "success"
-        }
 * @apiErrorExample {json} Error-Response:
         HTTP/1.1 404 NOT FOUND
         {
@@ -321,7 +323,7 @@
 * @api {post} http://api.flamingspace.sevsu.ru/projects/edit/projectid/events Добавить мероприятие к проекту
 * @apiName  PostEventProject
 * @apiGroup Project 
-* @apiParam {Integer}       projectid           ID проекта
+* @apiParam   (Параметры маршрута) {Integer}       projectid           ID проекта
 * @apiParam {Integer}       id                  ID мероприятия
 * @apiParam {String}        name                Наименование
 * @apiParam {String}        photo               Фотография мероприятия
@@ -335,9 +337,6 @@
     }
 * @apiSuccessExample {json} Success-Response:
         HTTP/1.1 204 No Content
-        {
-            "status": "No content"
-        }
 * @apiErrorExample {json} Error-Response:
         HTTP/1.1 404 NOT FOUND
         {
@@ -352,13 +351,10 @@
 * @api {delete} http://api.flamingspace.sevsu.ru/projects/edit/projectid/events Удалить мероприятия проекта
 * @apiName  DeleteEventProject
 * @apiGroup Project
-* @apiParam {Integer}       projectid           ID проекта
+* @apiParam   (Параметры маршрута) {Integer}       projectid           ID проекта
 * @apiParam {Integer}       id                  ID мероприятия
 * @apiSuccessExample {json} Success-Response:
         HTTP/1.1 204 No Content
-        {
-            "status": "No content"
-        }
 * @apiErrorExample {json} Error-Response:
         HTTP/1.1 404 NOT FOUND
         {
@@ -373,7 +369,7 @@
 * @api {put} http://api.flamingspace.sevsu.ru/projects/edit/projectid/vacancies Добавить или обновить вакансию проекта
 * @apiName  PutVacancyProject
 * @apiGroup Project 
-* @apiParam {Integer}       projectid           ID проекта
+* @apiParam   (Параметры маршрута) {Integer}       projectid           ID проекта
 * @apiParam {Object[]}      vacancies           Вакансии
 * @apiParam {Integer}       [id]                ID вакансии
 * @apiParam {Integer}       jobid               ID работы проекта
@@ -390,9 +386,6 @@
             }
 * @apiSuccessExample {json} Success-Response:
         HTTP/1.1 204 No Content
-        {
-            "status": "No content"
-        }
 * @apiErrorExample {json} Error-Response:
         HTTP/1.1 404 NOT FOUND
         {
@@ -407,7 +400,7 @@
 * @api {delete} http://api.flamingspace.sevsu.ru/projects/edit/projectid/vacancies Удалить вакансии проекта
 * @apiName  DeleteVacancyProject
 * @apiGroup Project
-* @apiParam {Integer}       projectid           ID проекта
+* @apiParam   (Параметры маршрута) {Integer}       projectid           ID проекта
 * @apiParam {Object[]}      vacancies           Вакансии
 * @apiParam {Integer}       id                  ID вакансии
 * @apiParamExample {json} Request-Delete-Example:
@@ -423,9 +416,6 @@
             }
 * @apiSuccessExample {json} Success-Response:
         HTTP/1.1 204 No Content
-        {
-            "status": "No content"
-        }
 * @apiErrorExample {json} Error-Response:
         HTTP/1.1 404 NOT FOUND
         {
@@ -440,9 +430,9 @@
 * @api {post} http://api.flamingspace.sevsu.ru/projects/edit/projectid/vacancies/vacancyid/userid Отправить заявку на вакансию в проекте
 * @apiName  PostProjectVacancyAccount
 * @apiGroup Project 
-* @apiParam {Integer}       projectid           ID проекта
-* @apiParam {Integer}       vacancyid           ID вакансии
-* @apiParam {Integer}       userid              ID участника
+* @apiParam   (Параметры маршрута) {Integer}       projectid           ID проекта
+* @apiParam   (Параметры маршрута) {Integer}       vacancyid           ID вакансии
+* @apiParam   (Параметры маршрута) {Integer}       userid              ID участника
 * @apiParam {String}        date                Дата отправки
 * @apiParam {String}        [message]           Сообщение
 * @apiSuccessExample {json} Success-Response:
@@ -462,13 +452,13 @@
 
 /**
 * @api {delete} http://api.flamingspace.sevsu.ru/projects/edit/projectid/vacancies/vacancyid/userid Удалить заявку на вакансию в проекте
-* @apiName  DeleteEventProject
+* @apiName  DeleteProjectVacancyAccount
 * @apiGroup Project
+* @apiParam   (Параметры маршрута) {Integer}       projectid           ID проекта
+* @apiParam   (Параметры маршрута) {Integer}       vacancyid           ID вакансии
+* @apiParam   (Параметры маршрута) {Integer}       userid              ID участника
 * @apiSuccessExample {json} Success-Response:
         HTTP/1.1 204 No Content
-        {
-            "status": "No content"
-        }
 * @apiErrorExample {json} Error-Response:
         HTTP/1.1 404 NOT FOUND
         {
@@ -483,9 +473,9 @@
 * @api {post} http://api.flamingspace.sevsu.ru/projects/projectid/jobs/jobid/userid Присвоить участнику должность в проекте
 * @apiName  PostProjectJobAccount
 * @apiGroup Project 
-* @apiParam {Integer}       projectid           ID проекта
-* @apiParam {Integer}       jobid               ID вакансии
-* @apiParam {Integer}       userid              ID участника
+* @apiParam   (Параметры маршрута) {Integer}       projectid           ID проекта
+* @apiParam   (Параметры маршрута) {Integer}       jobid               ID вакансии
+* @apiParam   (Параметры маршрута) {Integer}       userid              ID участника
 * @apiParam {String}        date                Дата отправки
 * @apiSuccessExample {json} Success-Response:
         HTTP/1.1 201 Created
@@ -506,14 +496,11 @@
 * @api {put} http://api.flamingspace.sevsu.ru/projects/projectid/jobs/jobid/userid Изменить должность участника в проекте
 * @apiName  PutProjectJobAccount
 * @apiGroup Project 
-* @apiParam {Integer}       projectid           ID проекта
-* @apiParam {Integer}       jobid               ID вакансии
-* @apiParam {Integer}       userid              ID участника
+* @apiParam   (Параметры маршрута) {Integer}       projectid           ID проекта
+* @apiParam   (Параметры маршрута) {Integer}       jobid               ID вакансии
+* @apiParam   (Параметры маршрута) {Integer}       userid              ID участника
 * @apiSuccessExample {json} Success-Response:
         HTTP/1.1 204 No Content
-        {
-            "status": "No content"
-        }
 * @apiErrorExample {json} Error-Response:
         HTTP/1.1 404 NOT FOUND
         {
@@ -528,14 +515,11 @@
 * @api {delete} http://api.flamingspace.sevsu.ru/projects/projectid/jobs/jobid/userid Исключить участника из проекта
 * @apiName  DeleteProjectJobAccount
 * @apiGroup Project
-* @apiParam {Integer}       projectid           ID проекта
-* @apiParam {Integer}       jobid               ID вакансии
-* @apiParam {Integer}       userid              ID участника
+* @apiParam   (Параметры маршрута) {Integer}       projectid           ID проекта
+* @apiParam   (Параметры маршрута) {Integer}       jobid               ID вакансии
+* @apiParam   (Параметры маршрута) {Integer}       userid              ID участника
 * @apiSuccessExample {json} Success-Response:
         HTTP/1.1 204 No Content
-        {
-            "status": "No content"
-        }
 * @apiErrorExample {json} Error-Response:
         HTTP/1.1 404 NOT FOUND
         {
