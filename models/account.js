@@ -8,8 +8,13 @@ exports.findById = function (id) {
                     return t.multi('SELECT * FROM account WHERE id=${id};'+
                     'SELECT cont.id, cont.name, cont_acc.url FROM contact_account AS cont_acc LEFT JOIN contact as cont ON cont_acc.contactid=cont.id WHERE cont_acc.accountid=${id};'+
                     'SELECT comp.id,comp.name, comp_acc.level FROM competence_account AS comp_acc LEFT JOIN competence as comp ON comp_acc.competenceid=comp.id WHERE comp_acc.accountid=${id};'+
-                    'SELECT proj.id,proj.name, proj.category FROM account_in_project AS acc_proj LEFT JOIN project as proj ON acc_proj.projectid=proj.id WHERE acc_proj.accountid=${id}', {id: id});
-            })
+                    `SELECT proj.id, proj.name, proj.category
+                    FROM flamingspace.account_in_project AS acc_proj 
+                    LEFT JOIN flamingspace.project as proj 
+                    ON acc_proj.projectid=proj.id 
+                    WHERE acc_proj.accountid=${id}
+                    GROUP BY proj.id;`, {id: id});
+            s})
             .catch(function (err) {
                 return err;
             });
