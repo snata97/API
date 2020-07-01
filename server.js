@@ -6,8 +6,8 @@ var database = require('./db');
 var db = database.connect();
 var app = express();
 const routes = require('./routes');
-//app.use(cors());
-//app.options('*', cors({credentials: true, origin: true}));
+app.use(cors());
+app.options('*', cors({credentials: true, origin: true}));
 app.use(function (req, res, next) {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Credentials", "true");
