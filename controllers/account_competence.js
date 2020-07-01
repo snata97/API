@@ -3,7 +3,8 @@ var account_competence = require('../models/account_competence');
 exports.update = function(req, res) {
   account_competence.update(req.body,req.params.userid)
       .then(function () {
-        res.status(204);
+        res.status(204).json({
+        });
       })
       .catch(function (err) {
           res.status(404)
@@ -19,7 +20,8 @@ exports.update = function(req, res) {
 exports.delete = function(req, res) {
   account_competence.delete(req.body,req.params.userid)
       .then(function () {
-          res.status(204);
+          res.status(204).json({
+          });
         })
       .catch(function (err) {
           res.status(404)

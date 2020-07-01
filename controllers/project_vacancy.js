@@ -3,7 +3,8 @@ var project_vacancy = require('../models/project_vacancy');
 exports.update = function(req, res) {
   project_vacancy.update(req.body,req.params.projectid)
       .then(function () {
-          res.status(204);
+          res.status(204).json({
+          });
         })
       .catch(function (err) {
           res.status(404)
@@ -19,7 +20,8 @@ exports.update = function(req, res) {
 exports.delete = function(req, res) {
   project_vacancy.delete(req.body,req.params.projectid)
       .then(function () {
-          res.status(204);
+          res.status(204).json({
+          });
         })
       .catch(function (err) {
           res.status(404)

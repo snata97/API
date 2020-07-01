@@ -51,7 +51,7 @@ exports.findById = function(req, res) {
                 info:info,
                 contacts: contacts,
                 competences:competences,
-                projects: projects,
+                projects: projects
               },
               message: 'Информация о пользователе'
             });
@@ -70,7 +70,9 @@ exports.findById = function(req, res) {
 exports.create = function(req, res) {
   account.create(req.body)
       .then(function () {
-          res.status(201);
+          res.status(201).json({
+            status:'created'
+          });
         })
       .catch(function (err) {
           res.status(404)
@@ -86,7 +88,8 @@ exports.create = function(req, res) {
 exports.update = function(req, res) {
   account.update(req.body,req.params.id)
       .then(function () {
-          res.status(204);
+          res.status(204).json({
+          });
         })
       .catch(function (err) {
           res.status(404)
@@ -102,7 +105,8 @@ exports.update = function(req, res) {
 exports.delete = function(req, res) {
   account.delete(req.params.id)
       .then(function () {
-          res.status(204);
+          res.status(204).json({
+          });
         })
       .catch(function (err) {
           res.status(404)

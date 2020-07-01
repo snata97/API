@@ -1,18 +1,18 @@
 require('dotenv').config();
 var express = require('express');
-var cors = require('cors')
+//var cors = require('cors')
 var bodyParser = require('body-parser');
 var database = require('./db');
 var db = database.connect();
 var app = express();
 const routes = require('./routes');
-// app.use(cors());
-// app.options('*', cors());
+//app.use(cors());
+//app.options('*', cors({credentials: true, origin: true}));
 app.use(function (req, res, next) {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Credentials", "true");
-    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-    res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.setHeader("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS");
+    res.setHeader("Access-Control-Allow-Headers", "Origin,X-Requested-With,Content-Type,Accept");
     res.setHeader("Content-Type", "application/json");
     next();
 });
@@ -32,6 +32,3 @@ app.listen(3012, function(){
         process.exit(-1);
     });
 })
-
-
-

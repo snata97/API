@@ -89,7 +89,8 @@ exports.create = function(req, res) {
 exports.update = function(req, res) {
   project.update(req.body, req.params.projectid, req.params.userid)
       .then(function () {
-          res.status(204);
+          res.status(204).json({
+          });
         })
       .catch(function (err) {
           res.status(404)
@@ -105,7 +106,8 @@ exports.update = function(req, res) {
 exports.delete = function(req, res) {
   project.delete(req.params.projectid, req.params.userid)
       .then(function () {
-          res.status(204);
+          res.status(204).json({
+          });
         })
       .catch(function (err) {
           res.status(404)

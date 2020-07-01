@@ -44,7 +44,8 @@ exports.create = function(req, res) {
 exports.update = function(req, res) {
   account_job_project.update(req.body)
       .then(function () {
-          res.status(204);
+          res.status(204).json({
+          });
         })
       .catch(function (err) {
           res.status(404)
@@ -60,7 +61,8 @@ exports.update = function(req, res) {
 exports.delete = function(req, res) {
   account_job_project.delete(req.body)
       .then(function () {
-          res.status(204);
+          res.status(204).json({
+          });
         })
       .catch(function (err) {
           res.status(404)

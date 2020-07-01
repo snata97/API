@@ -8,6 +8,7 @@ exports.create = function (body,accountid,vacancyid) {
         keys.push(key);
         values.push('${'+key+'}');
     }
+    console.log(('INSERT INTO vacancy_account (accountid, vacancyid, '+ keys.join(',') +') VALUES('+accountid +', '+ vacancyid +', '+ values.join(',') + ');', body));
     return db.none('INSERT INTO vacancy_account (accountid, vacancyid, '+ keys.join(',') +') VALUES('+accountid +', '+ vacancyid +', '+ values.join(',') + ');', body);
 }
 

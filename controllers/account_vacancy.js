@@ -3,7 +3,9 @@ var account_vacancy = require('../models/account_vacancy');
 exports.create = function(req, res) {
   account_vacancy.create(req.body,req.params.userid, req.params.vacancyid)
       .then(function () {
-          res.status(204);
+          res.status(201).json({
+            status: 'created'
+          });
         })
       .catch(function (err) {
           res.status(404)
@@ -19,7 +21,8 @@ exports.create = function(req, res) {
 exports.delete = function(req, res) {
   account_vacancy.delete(req.params.userid, req.params.vacancyid)
       .then(function () {
-          res.status(204);
+          res.status(204).json({
+          });
         })
       .catch(function (err) {
           res.status(404)
