@@ -88,8 +88,7 @@ exports.create = function(req, res) {
 exports.update = function(req, res) {
   account.update(req.body,req.params.id)
       .then(function () {
-          res.status(204).json({
-          });
+          res.status(204).end();
         })
       .catch(function (err) {
           res.status(404)
@@ -105,8 +104,7 @@ exports.update = function(req, res) {
 exports.delete = function(req, res) {
   account.delete(req.params.id)
       .then(function () {
-          res.status(204).json({
-          });
+          res.status(204).end();
         })
       .catch(function (err) {
           res.status(404)

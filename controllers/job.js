@@ -22,8 +22,7 @@ exports.create = function(req, res) {
 exports.update = function(req, res) {
   job.update(req.body)
       .then(function () {
-          res.status(204).json({
-          });
+          res.status(204).end();
         })
       .catch(function (err) {
           res.status(404)
@@ -39,8 +38,7 @@ exports.update = function(req, res) {
 exports.delete = function(req, res) {
   job.delete(req.body)
       .then(function () {
-          res.status(204).json({
-          });
+          res.status(204).end();
         })
       .catch(function (err) {
           res.status(404)

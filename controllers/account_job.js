@@ -21,8 +21,7 @@ exports.create = function(req, res) {
 exports.update = function(req, res) {
   account_job.update(req.body, req.params.userid, req.params.jobid, req.params.projectid)
       .then(function () {
-          res.status(204).json({
-          });
+          res.status(204).end();
         })
       .catch(function (err) {
           res.status(404)
@@ -38,8 +37,7 @@ exports.update = function(req, res) {
 exports.delete = function(req, res) {
   account_job.delete(req.params.userid, req.params.jobid, req.params.projectid)
       .then(function () {
-          res.status(204).json({
-          });
+          res.status(204).end();
         })
       .catch(function (err) {
           res.status(404)

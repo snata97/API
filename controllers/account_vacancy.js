@@ -21,8 +21,7 @@ exports.create = function(req, res) {
 exports.delete = function(req, res) {
   account_vacancy.delete(req.params.userid, req.params.vacancyid)
       .then(function () {
-          res.status(204).json({
-          });
+          res.status(204).end();
         })
       .catch(function (err) {
           res.status(404)
