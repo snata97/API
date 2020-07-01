@@ -36,8 +36,8 @@ router.delete('/projects/edit/:projectid/events', projectEventController.delete)
 router.put('/projects/edit/:projectid/vacancies', projectVacancyController.update);//Создать или изменить вакансии проекта
 router.delete('/projects/edit/:projectid/vacancies', projectVacancyController.delete);//Удалить вакансии проекта
 
-router.post('/projects/:projectid/vacancies/:vacancyid/:userid', accountVacancyController.create);
-router.delete('/projects/:projectid/vacancies/:vacancyid/:userid', accountVacancyController.delete);
+router.post('/projects/edit/:projectid/vacancies/:vacancyid/:userid', accountVacancyController.create);
+router.delete('/projects/edit/:projectid/vacancies/:vacancyid/:userid', accountVacancyController.delete);
 
 router.post('/projects/:projectid/jobs/:jobid/:userid', accountJobController.create);
 router.put('/projects/:projectid/jobs/:jobid/:userid', accountJobController.update);
