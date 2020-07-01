@@ -4,9 +4,10 @@ var db = database.connect();
 exports.all = function () {
     return db.any(`
         SELECT proj.*, 
-            array_to_json(array_agg(json_build_object('id',vac_table.jobid, 'name',vac_table.name))) as vacancies
+            array_to_json(array_agg(json_build_object('id',vac_table.vac_id, 'name',vac_table.name))) as vacancies
         FROM project AS proj 
-        LEFT JOIN (vacancy LEFT JOIN job
+        LEFT JOIN (SELECT vacancy.*, vacancy.id as vac_id, job.* FROM vacancy 
+                LEFT JOIN job
         ON vacancy.jobid=job.id) AS vac_table 
         ON proj.id=vac_table.projectid
         GROUP BY proj.id`
@@ -41,10 +42,10 @@ exports.allPageLimit = function (page, limit, req) {
     }
     return db.any(`
         SELECT proj.*, 
-               array_to_json(array_agg(json_build_object('id',vac_table.jobid,'name',vac_table.name))) as vacancies
+            array_to_json(array_agg(json_build_object('id',vac_table.vac_id, 'name',vac_table.name))) as vacancies
         FROM project AS proj 
-        LEFT JOIN (vacancy
-        LEFT JOIN job
+        LEFT JOIN (SELECT vacancy.*, vacancy.id as vac_id, job.* FROM vacancy 
+                LEFT JOIN job
         ON vacancy.jobid=job.id) AS vac_table 
         ON proj.id=vac_table.projectid
         $1:raw
