@@ -16,23 +16,18 @@ exports.all = function(req, res) {
                 status: 'error',
                 error: 'api_error',
                 error_code: 404,
-                error_description: err.code
+                error_description: err.message
             });
         })
 };
 
 exports.findById = function(req, res) {
   project.findById(req.params.id)
-        .then(function ([info, participants, vacancies, events]) {
+        .then(function (data){
           res.status(200)
             .json({
               status: 'success',
-              data: {
-                info:info,
-                participants: participants,
-                vacancies:vacancies,
-                events: events,
-              },
+              data: data,
               message: 'Информация о проекте'
             });
         })
@@ -49,7 +44,7 @@ exports.findById = function(req, res) {
 
 exports.allPageLimit = function(req, res) {
   project.allPageLimit(Number(req.params.page), Number(req.params.limit),req.query)
-      .then(function (data) {
+     .then(function (data) {
           res.status(200)
           .json({
             status: 'success',

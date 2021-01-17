@@ -4,7 +4,7 @@
 * @apiGroup User
 * @apiSuccess (Success 200) {String}    status                  Статус запроса
 * @apiSuccess (Success 200) {Object[]}  data                    Список с участниками
-* @apiSuccess (Success 200) {Integer}    data.id                 ID
+* @apiSuccess (Success 200) {Integer}   data.id                 ID
 * @apiSuccess (Success 200) {String}    data.firstname          Имя
 * @apiSuccess (Success 200) {String}    data.lastname           Фамилия
 * @apiSuccess (Success 200) {String}    data.fathername         Отчество
@@ -14,11 +14,22 @@
 * @apiSuccess (Success 200) {String}    data.nickname           Ник
 * @apiSuccess (Success 200) {Object[]}  data.competences        Компетенции
 * @apiSuccess (Success 200) {String}    data.competences.name   Наименование
-* @apiSuccess (Success 200) {String}    data.competences.level  Уровень
+* @apiSuccess (Success 200) {Object[]}  data.contacts           Контакты
+* @apiSuccess (Success 200) {String}    data.contacts.name      Наименование
+* @apiSuccess (Success 200) {String}    data.contacts.url       URL
+* @apiSuccess (Success 200) {Object[]}  data.projects           Проекты
+* @apiSuccess (Success 200) {Integer}   data.projects.id        ID
+* @apiSuccess (Success 200) {String}    data.projects.name      Наименование
+* @apiSuccess (Success 200) {Object[]}  data.events             Мероприятия
+* @apiSuccess (Success 200) {Integer}   data.events.id          ID мероприятия
+* @apiSuccess (Success 200) {Integer}   data.events.projectID   ID проекта
+* @apiSuccess (Success 200) {String}    data.events.name        Наименование
+* @apiSuccess (Success 200) {String}    data.events.photo       Фото
+* @apiSuccess (Success 200) {Date}      data.events.date        Дата
 * @apiSuccess (Success 200) {String}    message                 Поясняющее сообщение
 * @apiError   (Error 404)   {String}    status                  Статус запроса
 * @apiError   (Error 404)   {String}    error                   Поясняющее сообщение
-* @apiError   (Error 404)   {Integer}    error_code              Код ошибки
+* @apiError   (Error 404)   {Integer}    error_code             Код ошибки
 * @apiError   (Error 404)   {String}    error_description       Описание ошибки
 * @apiSuccessExample {json} Success-Response:
         HTTP/1.1 200 OK
@@ -26,38 +37,39 @@
             "status": "success",
             "data": [
                 {
-                    "id": 2643,
-                    "firstname": "Марк",
-                    "lastname": "Багдасаров",
-                    "farthername": null,
+                    "id": id,
+                    "firstname": "firstname",
+                    "lastname": "lastname",
+                    "farthername": "farthername",
                     "photo": url,
-                    "post": null,
-                    "status": "ищу проект",
-                    "nickname": "2643",
+                    "post": "post",
+                    "status": "status",
+                    "nickname": "nickname",
                     "competences": [
                         {
-                        "name": "Разработчик С++",
-                        "level": 1
+                        "name": name
                         }
-                    ]
-                },
-                {
-                    "id": 198635,
-                    "firstname": "Нателла",
-                    "lastname": "Стрельникова",
-                    "farthername": "Наумовна",
-                    "photo": url,
-                    "post": null,
-                    "status": "ищу команду",
-                    "nickname": "198635",
-                    "competences": [
+                    ],
+                    "contacts": [
                         {
-                        "name": "Разработчик JS",
-                        "level": 2
-                        },
+                        "name": "name",
+                        "url": "url"
+                        }
+                        }
+                    ],
+                    "projects": [
                         {
-                        "name": "Веб-разработчик",
-                        "level": 2
+                        "id": id,
+                        "name": "name"
+                        }
+                    ],
+                    "events": [
+                        {
+                        "id": id,
+                        "projectID": id,
+                        "name": "name",
+                        "photo": "photo_url",
+                        "date": "yyyy-mm-dd"
                         }
                     ]
                 }
@@ -77,13 +89,13 @@
 * @api {get} http://api.flamingspace.sevsu.ru/users/page/limit Получить пользователей постранично и с фильтрацией
 * @apiName GetUsersFilter
 * @apiGroup User
-* @apiParam (Параметры маршрута) {Integer}      page                    Номер страницы           
-* @apiParam (Параметры маршрута) {Integer}      limit                   Количество элементов
-* @apiParam (Параметр) {String}       [fio]                   Поиск по фамилии и имени            
-* @apiParam (Параметр) {String}       [status]                Поиск по статусу участника
+* @apiParam (Параметры маршрута) {Integer}      page            Номер страницы           
+* @apiParam (Параметры маршрута) {Integer}      limit           Количество элементов
+* @apiParam (Параметр) {String}         [fio]                   Поиск по фамилии и имени            
+* @apiParam (Параметр) {String}         [status]                Поиск по статусу участника
 * @apiSuccess (Success 200) {String}    status                  Статус запроса
 * @apiSuccess (Success 200) {Object[]}  data                    Список с участниками
-* @apiSuccess (Success 200) {Integer}    data.id                 ID
+* @apiSuccess (Success 200) {Integer}   data.id                 ID
 * @apiSuccess (Success 200) {String}    data.firstname          Имя
 * @apiSuccess (Success 200) {String}    data.lastname           Фамилия
 * @apiSuccess (Success 200) {String}    data.fathername         Отчество
@@ -93,11 +105,22 @@
 * @apiSuccess (Success 200) {String}    data.nickname           Ник
 * @apiSuccess (Success 200) {Object[]}  data.competences        Компетенции
 * @apiSuccess (Success 200) {String}    data.competences.name   Наименование
-* @apiSuccess (Success 200) {String}    data.competences.level  Уровень
+* @apiSuccess (Success 200) {Object[]}  data.contacts           Контакты
+* @apiSuccess (Success 200) {String}    data.contacts.name      Наименование
+* @apiSuccess (Success 200) {String}    data.contacts.url       URL
+* @apiSuccess (Success 200) {Object[]}  data.projects           Проекты
+* @apiSuccess (Success 200) {Integer}   data.projects.id        ID
+* @apiSuccess (Success 200) {String}    data.projects.name      Наименование
+* @apiSuccess (Success 200) {Object[]}  data.events             Мероприятия
+* @apiSuccess (Success 200) {Integer}   data.events.id          ID мероприятия
+* @apiSuccess (Success 200) {Integer}   data.events.projectID   ID проекта
+* @apiSuccess (Success 200) {String}    data.events.name        Наименование
+* @apiSuccess (Success 200) {String}    data.events.photo       Фото
+* @apiSuccess (Success 200) {Date}      data.events.date        Дата
 * @apiSuccess (Success 200) {String}    message                 Поясняющее сообщение
 * @apiError   (Error 404)   {String}    status                  Статус запроса
 * @apiError   (Error 404)   {String}    error                   Поясняющее сообщение
-* @apiError   (Error 404)   {Integer}    error_code              Код ошибки
+* @apiError   (Error 404)   {Integer}    error_code             Код ошибки
 * @apiError   (Error 404)   {String}    error_description       Описание ошибки
 * @apiSuccessExample {json} Success-Response:
         HTTP/1.1 200 OK
@@ -105,22 +128,39 @@
             "status": "success",
             "data": [
                 {
-                    "id": 198635,
-                    "firstname": "Нателла",
-                    "lastname": "Стрельникова",
-                    "farthername": "Наумовна",
-                    "photo": null,
-                    "post": null,
-                    "status": "ищу команду",
-                    "nickname": "198635",
+                    "id": id,
+                    "firstname": "firstname",
+                    "lastname": "lastname",
+                    "farthername": "farthername",
+                    "photo": url,
+                    "post": "post",
+                    "status": "status",
+                    "nickname": "nickname",
                     "competences": [
                         {
-                        "name": "Разработчик JS",
-                        "level": 2
-                        },
+                        "name": name
+                        }
+                    ],
+                    "contacts": [
                         {
-                        "name": "Веб-разработчик",
-                        "level": 2
+                        "name": "name",
+                        "url": "url"
+                        }
+                        }
+                    ],
+                    "projects": [
+                        {
+                        "id": id,
+                        "name": "name"
+                        }
+                    ],
+                    "events": [
+                        {
+                        "id": id,
+                        "projectID": id,
+                        "name": "name",
+                        "photo": "photo_url",
+                        "date": "yyyy-mm-dd"
                         }
                     ]
                 }
@@ -144,26 +184,28 @@
 * @apiSuccess (Success 200) {String}    status                  Статус запроса
 * @apiSuccess (Success 200) {Object[]}  data                    Данные
 * @apiSuccess (Success 200) {Object[]}  data.info               Информация аккаунта
-* @apiSuccess (Success 200) {Integer}    data.info.id            ID
-* @apiSuccess (Success 200) {String}    data.info.firstname     Имя
-* @apiSuccess (Success 200) {String}    data.info.lastname      Фамилия
-* @apiSuccess (Success 200) {String}    data.info.fathername    Отчество
-* @apiSuccess (Success 200) {String}    data.info.photo         Фото
-* @apiSuccess (Success 200) {String}    data.info.post          "Положение"
-* @apiSuccess (Success 200) {String}    data.info.status        Статус
-* @apiSuccess (Success 200) {String}    data.info.nickname      Ник
+* @apiSuccess (Success 200) {Integer}   data.id                 ID
+* @apiSuccess (Success 200) {String}    data.firstname          Имя
+* @apiSuccess (Success 200) {String}    data.lastname           Фамилия
+* @apiSuccess (Success 200) {String}    data.fathername         Отчество
+* @apiSuccess (Success 200) {String}    data.photo              Фото
+* @apiSuccess (Success 200) {String}    data.post               "Положение"
+* @apiSuccess (Success 200) {String}    data.status             Статус
+* @apiSuccess (Success 200) {String}    data.nickname           Ник
+* @apiSuccess (Success 200) {Object[]}  data.competences        Компетенции
+* @apiSuccess (Success 200) {String}    data.competences.name   Наименование
 * @apiSuccess (Success 200) {Object[]}  data.contacts           Контакты
-* @apiSuccess (Success 200) {Integer}    data.contacts.id        ID контакта
 * @apiSuccess (Success 200) {String}    data.contacts.name      Наименование
 * @apiSuccess (Success 200) {String}    data.contacts.url       URL
-* @apiSuccess (Success 200) {Object[]}  data.competences        Компетенции
-* @apiSuccess (Success 200) {Integer}    data.competences.id     ID
-* @apiSuccess (Success 200) {String}    data.competences.name   Наименование
-* @apiSuccess (Success 200) {Integer}    data.competences.level  Уровень
 * @apiSuccess (Success 200) {Object[]}  data.projects           Проекты
-* @apiSuccess (Success 200) {Integer}    data.projects.id        ID проекта
+* @apiSuccess (Success 200) {Integer}   data.projects.id        ID
 * @apiSuccess (Success 200) {String}    data.projects.name      Наименование
-* @apiSuccess (Success 200) {String}    data.projects.category  Категория
+* @apiSuccess (Success 200) {Object[]}  data.events             Мероприятия
+* @apiSuccess (Success 200) {Integer}   data.events.id          ID мероприятия
+* @apiSuccess (Success 200) {Integer}   data.events.projectID   ID проекта
+* @apiSuccess (Success 200) {String}    data.events.name        Наименование
+* @apiSuccess (Success 200) {String}    data.events.photo       Фото
+* @apiSuccess (Success 200) {Date}      data.events.date        Дата
 * @apiSuccess (Success 200) {String}    message                 Поясняющее сообщение
 * @apiError   (Error 404)   {String}    status                  Статус запроса
 * @apiError   (Error 404)   {String}    error                   Поясняющее сообщение
@@ -174,50 +216,42 @@
         {
             "status": "success",
             "data": {
-                    "info": [
+                    "id": id,
+                    "firstname": "firstname",
+                    "lastname": "lastname",
+                    "farthername": "farthername",
+                    "photo": url,
+                    "post": "post",
+                    "status": "status",
+                    "nickname": "nickname",
+                    "competences": [
                         {
-                            "id": 198635,
-                            "firstname": "Нателла",
-                            "lastname": "Стрельникова",
-                            "farthername": "Наумовна",
-                            "photo": null,
-                            "post": null,
-                            "status": null,
-                            "nickname": "198635"
+                        "name": name
                         }
                     ],
                     "contacts": [
                         {
-                            "id": 1,
-                            "name": "LeaderID",
-                            "url": "https://leader-id.ru/198635"
-                        },
-                        {
-                            "id": 2,
-                            "name": "Vkontakte",
-                            "url": "https://vk.com/198635"
+                        "name": "name",
+                        "url": "url"
                         }
-                    ],
-                    "competences": [
-                        {
-                            "id": 3,
-                            "name": "Разработчик JS",
-                            "level": 2
-                        },
-                        {
-                            "id": 8,
-                            "name": "Веб-разработчик",
-                            "level": 2
                         }
                     ],
                     "projects": [
                         {
-                            "id": 2,
-                            "name": "International",
-                            "category": "IT"
+                        "id": id,
+                        "name": "name"
+                        }
+                    ],
+                    "events": [
+                        {
+                        "id": id,
+                        "projectID": id,
+                        "name": "name",
+                        "photo": "photo_url",
+                        "date": "yyyy-mm-dd"
                         }
                     ]
-            },
+                },
             "message": "Информация о пользователе"
         }
 * @apiErrorExample {json} Error-Response:
@@ -262,7 +296,7 @@
 * @apiName  PutUser
 * @apiGroup User 
 * @apiParam (Параметры маршрута) {Integer}   id                  ID
-* @apiParam {String}    post                Положение"
+* @apiParam {String}    post                "Положение"
 * @apiParam {String}    status              Статус
 * @apiParam {String}    nickname            Ник
 * @apiSuccessExample {json} Success-Response:
@@ -307,11 +341,11 @@
         "contacts": [
             {
                 "contactid": 2,
-                "url": "http://url.ru"
+                "url": "url"
             },
             {
                 "contactid": 3,
-                "url": "http://url_two.ru"
+                "url": "url"
             }
         ]
     }
@@ -331,7 +365,7 @@
 * @api {delete} http://api.flamingspace.sevsu.ru/users/userid/contacts Удалить контакты участника
 * @apiName  DeleteContact
 * @apiGroup User 
-* @apiParam (Параметры маршрута) {Integer}        userid                  ID участника
+* @apiParam (Параметры маршрута) {Integer}           userid                  ID участника
 * @apiParam {Object[]}       contacts                Контакты
 * @apiParam {Integer}        contactid               ID
 * @apiParamExample {json} Request-Example:

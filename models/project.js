@@ -3,32 +3,12 @@ var db = database.connect();
 
 exports.all = function () {
     return db.any(`
-        SELECT proj.*, 
-            array_to_json(array_agg(json_build_object('id',vac_table.vac_id, 'name',vac_table.name))) as vacancies
-        FROM project AS proj 
-        LEFT JOIN (SELECT vacancy.*, vacancy.id as vac_id, job.* FROM vacancy 
-                LEFT JOIN job
-        ON vacancy.jobid=job.id) AS vac_table 
-        ON proj.id=vac_table.projectid
-        GROUP BY proj.id`
+       SELECT * FROM projects_info;`
     );
 }
 
 exports.findById = function (id) {
-    return db.task(t => {
-        return t.one('SELECT * FROM project WHERE id=${id}', {id: id})
-            .then(function(){
-                    return t.multi(
-                    `SELECT * FROM project WHERE id=${id};`+
-                    `SELECT acc.id, acc.firstname, acc.lastname, acc.fathername, acc.photo, array_to_json(array_agg(json_build_object('name',job.name))) as jobs FROM account_in_project AS acc_proj LEFT JOIN account AS acc ON acc_proj.accountid = acc.id LEFT JOIN job AS job ON acc_proj.jobid = job.id WHERE acc_proj.projectid=${id} GROUP BY acc.id;`+
-                    `SELECT vacancy.id, job.name, vacancy.description, vacancy.count FROM vacancy LEFT JOIN job AS job ON vacancy.jobid = job.id WHERE vacancy.projectid=${id};`+
-                    `SELECT event.id, event.name, event.photo, event.date FROM event LEFT JOIN project ON project.id = event.projectid WHERE event.projectid=${id};`
-                    , {id: id})
-            })
-            .catch(function (err) {
-                return err;
-            });
-    })
+    return db.one('SELECT * FROM projects_info WHERE id=${id}', {id: id});
 }
 
 exports.allPageLimit = function (page, limit, req) {
@@ -41,16 +21,10 @@ exports.allPageLimit = function (page, limit, req) {
         where = " WHERE "+ keysAndValues.join(' AND ');
     }
     return db.any(`
-        SELECT proj.*, 
-            array_to_json(array_agg(json_build_object('id',vac_table.vac_id, 'name',vac_table.name))) as vacancies
-        FROM project AS proj 
-        LEFT JOIN (SELECT vacancy.*, vacancy.id as vac_id, job.* FROM vacancy 
-                LEFT JOIN job
-        ON vacancy.jobid=job.id) AS vac_table 
-        ON proj.id=vac_table.projectid
-        $1:raw
-        GROUP BY proj.id OFFSET `+ page*limit+` LIMIT `+limit+`;`
-        , where);
+    SELECT * FROM projects_info
+    $1:raw
+    OFFSET `+ page*limit+` LIMIT `+limit+`;`
+    , where);
 }
 
 exports.create = function (body, accountid) {

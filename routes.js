@@ -15,7 +15,7 @@ const accountJobController = require('./controllers/account_job');
 // '/users'
 router.get('/users', accountController.all);
 router.get('/users/:page/:limit', accountController.allPageLimit);
-router.get('/users/:id', accountController.findById);
+router.get('/users/:id', accountController.findById); 
 router.post('/users', accountController.create);
 router.put('/users/:id', accountController.update);
 router.delete('/users/:id', accountController.delete);
@@ -45,6 +45,7 @@ router.delete('/projects/:projectid/jobs/:jobid/:userid', accountJobController.d
 
 
 // '/additional' // http://localhost:3012/additional
+router.get('/projects/categories', contactController.create);
 router.post('/upsert/contact', contactController.create);
 router.put('/upsert/contact', contactController.update);
 router.delete('/upsert/contact', contactController.delete);

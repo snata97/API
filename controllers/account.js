@@ -43,16 +43,11 @@ exports.allPageLimit = function(req, res) {
 
 exports.findById = function(req, res) {
   account.findById(req.params.id)
-        .then(function ([info, contacts, competences, projects]) {
+        .then(function (data){
           res.status(200)
             .json({
               status: 'success',
-              data: {
-                info:info,
-                contacts: contacts,
-                competences:competences,
-                projects: projects
-              },
+              data: data,
               message: 'Информация о пользователе'
             });
         })
@@ -62,7 +57,7 @@ exports.findById = function(req, res) {
                 status: 'error',
                 error: 'api_error',
                 error_code: 404,
-                error_description: 'Не найден пользователь с Leader-ID: Id'
+                error_description: 'Не найден пользователь с Leader-ID: '+ req.params.id
               });
         })
 };

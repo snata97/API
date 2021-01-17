@@ -4,15 +4,32 @@
 * @apiGroup Project
 * @apiSuccess (Success 200) {String}    status                  Статус запроса
 * @apiSuccess (Success 200) {Object[]}  data                    Список с проектами
-* @apiSuccess (Success 200) {Integer}    data.id                 ID
+* @apiSuccess (Success 200) {Integer}   data.id                 ID
 * @apiSuccess (Success 200) {String}    data.name               Наименование
 * @apiSuccess (Success 200) {String}    data.category           Категория
+* @apiSuccess (Success 200) {String}    data.subcategory        Подкатегория
 * @apiSuccess (Success 200) {String}    data.description        Описание 
 * @apiSuccess (Success 200) {String}    data.status             Статус
 * @apiSuccess (Success 200) {Date}      data.projectstart       Дата начала проекта     
 * @apiSuccess (Success 200) {Date}      data.projectend         Дата окончания проекта
-* @apiSuccess (Success 200) {Object[]}  data.vacancies          Вакансии
-* @apiSuccess (Success 200) {String}    data.vacancies.name     Наименование
+* @apiSuccess (Success 200) {Integer}   data.adminid            Id администратора проекта
+* @apiSuccess (Success 200) {Object[]}  data.accounts            Аккаунты
+* @apiSuccess (Success 200) {Integer}   data.accounts.id            ID
+* @apiSuccess (Success 200) {String}    data.accounts.firstname     Имя
+* @apiSuccess (Success 200) {String}    data.accounts.lastname      Фамилия
+* @apiSuccess (Success 200) {String}    data.accounts.fathername    Отчество
+* @apiSuccess (Success 200) {String}    data.accounts.photo         Фото
+* @apiSuccess (Success 200) {Object[]}  data.accounts.jobs          Позиция в проекте
+* @apiSuccess (Success 200) {String}    data.accounts.name          Наименование позиции
+* @apiSuccess (Success 200) {Object[]}  data.vacancies           Вакансии
+* @apiSuccess (Success 200) {String}    data.vacancies.name         Наименование
+* @apiSuccess (Success 200) {String}    data.vacancies.description  Описание
+* @apiSuccess (Success 200) {String}    data.vacancies.count        Количество
+* @apiSuccess (Success 200) {Object[]}  data.events             Мероприятия
+* @apiSuccess (Success 200) {Integer}   data.events.id          ID мероприятия
+* @apiSuccess (Success 200) {String}    data.events.name        Наименование
+* @apiSuccess (Success 200) {String}    data.events.photo       Фото
+* @apiSuccess (Success 200) {Date}      data.events.date        Дата
 * @apiSuccess (Success 200) {String}    message                 Поясняющее сообщение
 * @apiError   (Error 404)   {String}    status                  Статус запроса
 * @apiError   (Error 404)   {String}    error                   Поясняющее сообщение
@@ -24,45 +41,48 @@
             "status": "success",
             "data": [
                 {
-                    "id": 1,
-                    "name": "Иванушки",
-                    "category": "IT",
-                    "description": "Повседневная практика показывает, что сплочённость команды профессионалов требует определения и уточнения системы массового участия! Мы вынуждены отталкиваться от того, что сложившаяся структура организации, а также свежий взгляд на привычные вещи - безусловно открывает новые горизонты для поэтапного и последовательного развития общества. Следует отметить, что базовый вектор развития однозначно определяет каждого участника как способного принимать собственные решения касаемо прогресса профессионального сообщества.",
-                    "status": "набор",
-                    "projectstart": "2020-05-29T21:00:00.000Z",
-                    "projectend": null,
+                    "id": id,
+                    "name": "name",
+                    "subcategory": "subcategory",
+                    "category": "category",
+                    "description": "description",
+                    "status": "status",
+                    "projectstart": "yyyy-mm-dd",
+                    "projectend": "yyyy-mm-dd",
+                    "adminid": id,
+                    "accounts": [
+                        {
+                        "id": id,
+                        "firstname": "firstname",
+                        "lastname": "lastname",
+                        "fathername": "fathername",
+                        "photo": "url",
+                        "jobs": [
+                            {
+                            "name": "name"
+                            }
+                        ],
+                        "date": "yyyy-mm-dd"
+                        }
+                    ],
                     "vacancies": [
                         {
-                        "id": 3,
-                        "name": "Разработчик JS"
-                        },
+                        "name": "name",
+                        "description": "description",
+                        "count": 4
+                        }
+                    ],
+                    "events": [
                         {
-                        "id":2,
-                        "name": "Куратор"
+                        "id": id,
+                        "name": "name",
+                        "photo": "photo_url",
+                        "date": "yyyy-mm-dd"
                         }
                     ]
-                },
-                {
-                    "id": 3,
-                    "name": "Коробейники",
-                    "category": "Культура",
-                    "description": "Практический опыт показывает, что новая модель организационной деятельности способствует повышению актуальности форм воздействия? Разнообразный и богатый опыт выбранный нами инновационный путь требует от нас анализа системы масштабного изменения ряда параметров. Задача организации, в особенности же повышение уровня гражданского сознания представляет собой интересный эксперимент проверки системы обучения кадров, соответствующей насущным потребностям? Задача организации, в особенности же повышение уровня гражданского сознания позволяет выполнить важнейшие задания по разработке дальнейших направлений развитая системы массового участия. Не следует, однако, забывать о том, что новая модель организационной деятельности способствует повышению актуальности системы масштабного изменения ряда параметров. Соображения высшего порядка, а также повышение уровня гражданского сознания представляет собой интересный эксперимент проверки форм воздействия.",
-                    "status": "набор",
-                    "projectstart": "2020-06-14T21:00:00.000Z",
-                    "projectend": null,
-                    "vacancies": [
-                        {
-                        "id":3,
-                        "name": "Разработчик JS"
-                        },
-                        {
-                        "id":5,   
-                        "name": "Дизайнер"
-                        }
-                    ]
-                }
+                    }
             ],
-            "message": "Пользователи системы"
+            "message": "Проекты системы"
         }
 * @apiErrorExample {json} Error-Response:
         HTTP/1.1 404 NOT FOUND
@@ -84,15 +104,32 @@
 * @apiParam   (Параметр) {String}       [status]                Поиск по статусу
 * @apiSuccess (Success 200) {String}    status                  Статус запроса
 * @apiSuccess (Success 200) {Object[]}  data                    Список с проектами
-* @apiSuccess (Success 200) {Integer}    data.id                 ID
+* @apiSuccess (Success 200) {Integer}   data.id                 ID
 * @apiSuccess (Success 200) {String}    data.name               Наименование
 * @apiSuccess (Success 200) {String}    data.category           Категория
+* @apiSuccess (Success 200) {String}    data.subcategory        Подкатегория
 * @apiSuccess (Success 200) {String}    data.description        Описание 
 * @apiSuccess (Success 200) {String}    data.status             Статус
 * @apiSuccess (Success 200) {Date}      data.projectstart       Дата начала проекта     
 * @apiSuccess (Success 200) {Date}      data.projectend         Дата окончания проекта
-* @apiSuccess (Success 200) {Object[]}  data.vacancies          Вакансии
-* @apiSuccess (Success 200) {String}    data.vacancies.name     Наименование
+* @apiSuccess (Success 200) {Integer}   data.adminid            Id администратора проекта
+* @apiSuccess (Success 200) {Object[]}  data.accounts            Аккаунты
+* @apiSuccess (Success 200) {Integer}   data.accounts.id            ID
+* @apiSuccess (Success 200) {String}    data.accounts.firstname     Имя
+* @apiSuccess (Success 200) {String}    data.accounts.lastname      Фамилия
+* @apiSuccess (Success 200) {String}    data.accounts.fathername    Отчество
+* @apiSuccess (Success 200) {String}    data.accounts.photo         Фото
+* @apiSuccess (Success 200) {Object[]}  data.accounts.jobs          Позиция в проекте
+* @apiSuccess (Success 200) {String}    data.accounts.name          Наименование позиции
+* @apiSuccess (Success 200) {Object[]}  data.vacancies           Вакансии
+* @apiSuccess (Success 200) {String}    data.vacancies.name         Наименование
+* @apiSuccess (Success 200) {String}    data.vacancies.description  Описание
+* @apiSuccess (Success 200) {String}    data.vacancies.count        Количество
+* @apiSuccess (Success 200) {Object[]}  data.events             Мероприятия
+* @apiSuccess (Success 200) {Integer}   data.events.id          ID мероприятия
+* @apiSuccess (Success 200) {String}    data.events.name        Наименование
+* @apiSuccess (Success 200) {String}    data.events.photo       Фото
+* @apiSuccess (Success 200) {Date}      data.events.date        Дата
 * @apiSuccess (Success 200) {String}    message                 Поясняющее сообщение
 * @apiError   (Error 404)   {String}    status                  Статус запроса
 * @apiError   (Error 404)   {String}    error                   Поясняющее сообщение
@@ -104,40 +141,43 @@
             "status": "success",
             "data": [
                 {
-                    "id": 1,
-                    "name": "Иванушки",
-                    "category": "IT",
-                    "description": "Повседневная практика показывает, что сплочённость команды профессионалов требует определения и уточнения системы массового участия! Мы вынуждены отталкиваться от того, что сложившаяся структура организации, а также свежий взгляд на привычные вещи - безусловно открывает новые горизонты для поэтапного и последовательного развития общества. Следует отметить, что базовый вектор развития однозначно определяет каждого участника как способного принимать собственные решения касаемо прогресса профессионального сообщества.",
-                    "status": "набор",
-                    "projectstart": "2020-05-29T21:00:00.000Z",
-                    "projectend": null,
-                    "vacancies": [
+                    "id": id,
+                    "name": "name",
+                    "subcategory": "subcategory",
+                    "category": "category",
+                    "description": "description",
+                    "status": "status",
+                    "projectstart": "yyyy-mm-dd",
+                    "projectend": "yyyy-mm-dd",
+                    "adminid": id,
+                    "accounts": [
                         {
-                        "id": 3,
-                        "name": "Разработчик JS"
-                        },
-                        {
-                        "id":2,
-                        "name": "Куратор"
+                        "id": id,
+                        "firstname": "firstname",
+                        "lastname": "lastname",
+                        "fathername": "fathername",
+                        "photo": "url",
+                        "jobs": [
+                            {
+                            "name": "name"
+                            }
+                        ],
+                        "date": "yyyy-mm-dd"
                         }
-                    ]
-                },
-                {
-                    "id": 3,
-                    "name": "Коробейники",
-                    "category": "Культура",
-                    "description": "Практический опыт показывает, что новая модель организационной деятельности способствует повышению актуальности форм воздействия? Разнообразный и богатый опыт выбранный нами инновационный путь требует от нас анализа системы масштабного изменения ряда параметров. Задача организации, в особенности же повышение уровня гражданского сознания представляет собой интересный эксперимент проверки системы обучения кадров, соответствующей насущным потребностям? Задача организации, в особенности же повышение уровня гражданского сознания позволяет выполнить важнейшие задания по разработке дальнейших направлений развитая системы массового участия. Не следует, однако, забывать о том, что новая модель организационной деятельности способствует повышению актуальности системы масштабного изменения ряда параметров. Соображения высшего порядка, а также повышение уровня гражданского сознания представляет собой интересный эксперимент проверки форм воздействия.",
-                    "status": "набор",
-                    "projectstart": "2020-06-14T21:00:00.000Z",
-                    "projectend": null,
+                    ],
                     "vacancies": [
                         {
-                        "id":3,
-                        "name": "Разработчик JS"
-                        },
+                        "name": "name",
+                        "description": "description",
+                        "count": 4
+                        }
+                    ],
+                    "events": [
                         {
-                        "id":5,   
-                        "name": "Дизайнер"
+                        "id": id,
+                        "name": "name",
+                        "photo": "photo_url",
+                        "date": "yyyy-mm-dd"
                         }
                     ]
                 }
@@ -160,31 +200,32 @@
 * @apiParam   (Параметры маршрута)  id    ID проекта
 * @apiSuccess (Success 200) {String}    status                          Статус запроса
 * @apiSuccess (Success 200) {Object[]}  data                            Данные
-* @apiSuccess (Success 200) {Integer}   data.id                         ID
-* @apiSuccess (Success 200) {String}    data.name                       Наименование
-* @apiSuccess (Success 200) {String}    data.category                   Категория
-* @apiSuccess (Success 200) {String}    data.description                Описание 
-* @apiSuccess (Success 200) {String}    data.status                     Статус
-* @apiSuccess (Success 200) {Date}      data.projectstart               Дата начала проекта     
-* @apiSuccess (Success 200) {Date}      data.projectend                 Дата окончания проекта
-* @apiSuccess (Success 200) {Object[]}  data.participants               Участники
-* @apiSuccess (Success 200) {String}    data.participants.id            ID
-* @apiSuccess (Success 200) {String}    data.participants.firstname     Имя
-* @apiSuccess (Success 200) {String}    data.participants.lastname      Фамилия
-* @apiSuccess (Success 200) {String}    data.participants.fathername    Отчество
-* @apiSuccess (Success 200) {String}    data.participants.photo         Фото
-* @apiSuccess (Success 200) {Object[]}  data.participants.jobs          Работа участника в проекте
-* @apiSuccess (Success 200) {String}    data.participants.name          Наименование
-* @apiSuccess (Success 200) {Object[]}  data.vacancies                  Вакансии
-* @apiSuccess (Success 200) {String}    data.vacancies.id               ID
-* @apiSuccess (Success 200) {String}    data.vacancies.name             Наименование
-* @apiSuccess (Success 200) {String}    data.vacancies.description      Описание
-* @apiSuccess (Success 200) {Integer}   data.vacancies.count            Количество
-* @apiSuccess (Success 200) {Object[]}  data.events                     Мероприятия
-* @apiSuccess (Success 200) {Integer}   data.events.id                  ID
-* @apiSuccess (Success 200) {String}    data.events.name                Наименование
-* @apiSuccess (Success 200) {String}    data.events.photo               Фото
-* @apiSuccess (Success 200) {Date}      data.events.date                Дата проведения
+* @apiSuccess (Success 200) {Integer}   data.id                 ID
+* @apiSuccess (Success 200) {String}    data.name               Наименование
+* @apiSuccess (Success 200) {String}    data.category           Категория
+* @apiSuccess (Success 200) {String}    data.subcategory        Подкатегория
+* @apiSuccess (Success 200) {String}    data.description        Описание 
+* @apiSuccess (Success 200) {String}    data.status             Статус
+* @apiSuccess (Success 200) {Date}      data.projectstart       Дата начала проекта     
+* @apiSuccess (Success 200) {Date}      data.projectend         Дата окончания проекта
+* @apiSuccess (Success 200) {Integer}   data.adminid            Id администратора проекта
+* @apiSuccess (Success 200) {Object[]}  data.accounts            Аккаунты
+* @apiSuccess (Success 200) {Integer}   data.accounts.id            ID
+* @apiSuccess (Success 200) {String}    data.accounts.firstname     Имя
+* @apiSuccess (Success 200) {String}    data.accounts.lastname      Фамилия
+* @apiSuccess (Success 200) {String}    data.accounts.fathername    Отчество
+* @apiSuccess (Success 200) {String}    data.accounts.photo         Фото
+* @apiSuccess (Success 200) {Object[]}  data.accounts.jobs          Позиция в проекте
+* @apiSuccess (Success 200) {String}    data.accounts.name          Наименование позиции
+* @apiSuccess (Success 200) {Object[]}  data.vacancies           Вакансии
+* @apiSuccess (Success 200) {String}    data.vacancies.name         Наименование
+* @apiSuccess (Success 200) {String}    data.vacancies.description  Описание
+* @apiSuccess (Success 200) {String}    data.vacancies.count        Количество
+* @apiSuccess (Success 200) {Object[]}  data.events             Мероприятия
+* @apiSuccess (Success 200) {Integer}   data.events.id          ID мероприятия
+* @apiSuccess (Success 200) {String}    data.events.name        Наименование
+* @apiSuccess (Success 200) {String}    data.events.photo       Фото
+* @apiSuccess (Success 200) {Date}      data.events.date        Дата
 * @apiSuccess (Success 200) {String}    message                         Поясняющее сообщение
 * @apiError   (Error 404)   {String}    status                          Статус запроса
 * @apiError   (Error 404)   {String}    error                           Поясняющее сообщение
@@ -195,48 +236,45 @@
         {
             "status": "success",
             "data": {
-                "info": [
-                {
-                    "id": 3,
-                    "name": "Коробейники",
-                    "category": "Культура",
-                    "description": "Практический опыт показывает, что новая модель организационной деятельности способствует повышению актуальности форм воздействия? Разнообразный и богатый опыт выбранный нами инновационный путь требует от нас анализа системы масштабного изменения ряда параметров. Задача организации, в особенности же повышение уровня гражданского сознания представляет собой интересный эксперимент проверки системы обучения кадров, соответствующей насущным потребностям? Задача организации, в особенности же повышение уровня гражданского сознания позволяет выполнить важнейшие задания по разработке дальнейших направлений развитая системы массового участия. Не следует, однако, забывать о том, что новая модель организационной деятельности способствует повышению актуальности системы масштабного изменения ряда параметров. Соображения высшего порядка, а также повышение уровня гражданского сознания представляет собой интересный эксперимент проверки форм воздействия.",
-                    "status": "набор",
-                    "projectstart": "2020-06-14T21:00:00.000Z",
-                    "projectend": null
-                }
-                ],
-                "participants": [
-                {
-                    "id": 2643,
-                    "firstname": "Марк",
-                    "lastname": "Багдасаров",
-                    "farthername": null,
-                    "photo": null,
-                    "jobs": [
-                    {
-                        "name": "Дизайнер"
-                    }
+                    "id": id,
+                    "name": "name",
+                    "subcategory": "subcategory",
+                    "category": "category",
+                    "description": "description",
+                    "status": "status",
+                    "projectstart": "yyyy-mm-dd",
+                    "projectend": "yyyy-mm-dd",
+                    "adminid": id,
+                    "accounts": [
+                        {
+                        "id": id,
+                        "firstname": "firstname",
+                        "lastname": "lastname",
+                        "fathername": "fathername",
+                        "photo": "url",
+                        "jobs": [
+                            {
+                            "name": "name"
+                            }
+                        ],
+                        "date": "yyyy-mm-dd"
+                        }
+                    ],
+                    "vacancies": [
+                        {
+                        "name": "name",
+                        "description": "description",
+                        "count": 4
+                        }
+                    ],
+                    "events": [
+                        {
+                        "id": id,
+                        "name": "name",
+                        "photo": "photo_url",
+                        "date": "yyyy-mm-dd"
+                        }
                     ]
-                }
-                ],
-                "vacancies": [
-                    {
-                        "id": 6,
-                        "name": "Разработчик С++",
-                        "description": "Шестая вакансия",
-                        "count": 2
-                    },
-                    {
-                        "id": 4,
-                        "name": "Менеджер",
-                        "description": "Четвертая вакансия",
-                        "count": 1
-                    }
-                ],
-                "events": [
-                
-                ]
             },
             "message": "Информация о проекте"
             }

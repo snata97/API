@@ -331,6 +331,13 @@ define({ "api": [
             "group": "Success 200",
             "type": "String",
             "optional": false,
+            "field": "data.subcategory",
+            "description": "<p>Подкатегория</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
             "field": "data.description",
             "description": "<p>Описание</p>"
           },
@@ -357,59 +364,66 @@ define({ "api": [
           },
           {
             "group": "Success 200",
-            "type": "Object[]",
+            "type": "Integer",
             "optional": false,
-            "field": "data.participants",
-            "description": "<p>Участники</p>"
+            "field": "data.adminid",
+            "description": "<p>Id администратора проекта</p>"
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "Object[]",
             "optional": false,
-            "field": "data.participants.id",
+            "field": "data.accounts",
+            "description": "<p>Аккаунты</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "data.accounts.id",
             "description": "<p>ID</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "data.participants.firstname",
+            "field": "data.accounts.firstname",
             "description": "<p>Имя</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "data.participants.lastname",
+            "field": "data.accounts.lastname",
             "description": "<p>Фамилия</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "data.participants.fathername",
+            "field": "data.accounts.fathername",
             "description": "<p>Отчество</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "data.participants.photo",
+            "field": "data.accounts.photo",
             "description": "<p>Фото</p>"
           },
           {
             "group": "Success 200",
             "type": "Object[]",
             "optional": false,
-            "field": "data.participants.jobs",
-            "description": "<p>Работа участника в проекте</p>"
+            "field": "data.accounts.jobs",
+            "description": "<p>Позиция в проекте</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "data.participants.name",
-            "description": "<p>Наименование</p>"
+            "field": "data.accounts.name",
+            "description": "<p>Наименование позиции</p>"
           },
           {
             "group": "Success 200",
@@ -417,13 +431,6 @@ define({ "api": [
             "optional": false,
             "field": "data.vacancies",
             "description": "<p>Вакансии</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "data.vacancies.id",
-            "description": "<p>ID</p>"
           },
           {
             "group": "Success 200",
@@ -441,7 +448,7 @@ define({ "api": [
           },
           {
             "group": "Success 200",
-            "type": "Integer",
+            "type": "String",
             "optional": false,
             "field": "data.vacancies.count",
             "description": "<p>Количество</p>"
@@ -458,7 +465,7 @@ define({ "api": [
             "type": "Integer",
             "optional": false,
             "field": "data.events.id",
-            "description": "<p>ID</p>"
+            "description": "<p>ID мероприятия</p>"
           },
           {
             "group": "Success 200",
@@ -479,7 +486,7 @@ define({ "api": [
             "type": "Date",
             "optional": false,
             "field": "data.events.date",
-            "description": "<p>Дата проведения</p>"
+            "description": "<p>Дата</p>"
           },
           {
             "group": "Success 200",
@@ -493,7 +500,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"status\": \"success\",\n    \"data\": {\n        \"info\": [\n        {\n            \"id\": 3,\n            \"name\": \"Коробейники\",\n            \"category\": \"Культура\",\n            \"description\": \"Практический опыт показывает, что новая модель организационной деятельности способствует повышению актуальности форм воздействия? Разнообразный и богатый опыт выбранный нами инновационный путь требует от нас анализа системы масштабного изменения ряда параметров. Задача организации, в особенности же повышение уровня гражданского сознания представляет собой интересный эксперимент проверки системы обучения кадров, соответствующей насущным потребностям? Задача организации, в особенности же повышение уровня гражданского сознания позволяет выполнить важнейшие задания по разработке дальнейших направлений развитая системы массового участия. Не следует, однако, забывать о том, что новая модель организационной деятельности способствует повышению актуальности системы масштабного изменения ряда параметров. Соображения высшего порядка, а также повышение уровня гражданского сознания представляет собой интересный эксперимент проверки форм воздействия.\",\n            \"status\": \"набор\",\n            \"projectstart\": \"2020-06-14T21:00:00.000Z\",\n            \"projectend\": null\n        }\n        ],\n        \"participants\": [\n        {\n            \"id\": 2643,\n            \"firstname\": \"Марк\",\n            \"lastname\": \"Багдасаров\",\n            \"farthername\": null,\n            \"photo\": null,\n            \"jobs\": [\n            {\n                \"name\": \"Дизайнер\"\n            }\n            ]\n        }\n        ],\n        \"vacancies\": [\n            {\n                \"id\": 6,\n                \"name\": \"Разработчик С++\",\n                \"description\": \"Шестая вакансия\",\n                \"count\": 2\n            },\n            {\n                \"id\": 4,\n                \"name\": \"Менеджер\",\n                \"description\": \"Четвертая вакансия\",\n                \"count\": 1\n            }\n        ],\n        \"events\": [\n        \n        ]\n    },\n    \"message\": \"Информация о проекте\"\n    }",
+          "content": "HTTP/1.1 200 OK\n{\n    \"status\": \"success\",\n    \"data\": {\n            \"id\": id,\n            \"name\": \"name\",\n            \"subcategory\": \"subcategory\",\n            \"category\": \"category\",\n            \"description\": \"description\",\n            \"status\": \"status\",\n            \"projectstart\": \"yyyy-mm-dd\",\n            \"projectend\": \"yyyy-mm-dd\",\n            \"adminid\": id,\n            \"accounts\": [\n                {\n                \"id\": id,\n                \"firstname\": \"firstname\",\n                \"lastname\": \"lastname\",\n                \"fathername\": \"fathername\",\n                \"photo\": \"url\",\n                \"jobs\": [\n                    {\n                    \"name\": \"name\"\n                    }\n                ],\n                \"date\": \"yyyy-mm-dd\"\n                }\n            ],\n            \"vacancies\": [\n                {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"count\": 4\n                }\n            ],\n            \"events\": [\n                {\n                \"id\": id,\n                \"name\": \"name\",\n                \"photo\": \"photo_url\",\n                \"date\": \"yyyy-mm-dd\"\n                }\n            ]\n    },\n    \"message\": \"Информация о проекте\"\n    }",
           "type": "json"
         }
       ]
@@ -591,6 +598,13 @@ define({ "api": [
             "group": "Success 200",
             "type": "String",
             "optional": false,
+            "field": "data.subcategory",
+            "description": "<p>Подкатегория</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
             "field": "data.description",
             "description": "<p>Описание</p>"
           },
@@ -617,6 +631,69 @@ define({ "api": [
           },
           {
             "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "data.adminid",
+            "description": "<p>Id администратора проекта</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "data.accounts",
+            "description": "<p>Аккаунты</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "data.accounts.id",
+            "description": "<p>ID</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "data.accounts.firstname",
+            "description": "<p>Имя</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "data.accounts.lastname",
+            "description": "<p>Фамилия</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "data.accounts.fathername",
+            "description": "<p>Отчество</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "data.accounts.photo",
+            "description": "<p>Фото</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "data.accounts.jobs",
+            "description": "<p>Позиция в проекте</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "data.accounts.name",
+            "description": "<p>Наименование позиции</p>"
+          },
+          {
+            "group": "Success 200",
             "type": "Object[]",
             "optional": false,
             "field": "data.vacancies",
@@ -633,6 +710,55 @@ define({ "api": [
             "group": "Success 200",
             "type": "String",
             "optional": false,
+            "field": "data.vacancies.description",
+            "description": "<p>Описание</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "data.vacancies.count",
+            "description": "<p>Количество</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "data.events",
+            "description": "<p>Мероприятия</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "data.events.id",
+            "description": "<p>ID мероприятия</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "data.events.name",
+            "description": "<p>Наименование</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "data.events.photo",
+            "description": "<p>Фото</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "data.events.date",
+            "description": "<p>Дата</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
             "field": "message",
             "description": "<p>Поясняющее сообщение</p>"
           }
@@ -641,7 +767,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 ОК\n{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"Иванушки\",\n            \"category\": \"IT\",\n            \"description\": \"Повседневная практика показывает, что сплочённость команды профессионалов требует определения и уточнения системы массового участия! Мы вынуждены отталкиваться от того, что сложившаяся структура организации, а также свежий взгляд на привычные вещи - безусловно открывает новые горизонты для поэтапного и последовательного развития общества. Следует отметить, что базовый вектор развития однозначно определяет каждого участника как способного принимать собственные решения касаемо прогресса профессионального сообщества.\",\n            \"status\": \"набор\",\n            \"projectstart\": \"2020-05-29T21:00:00.000Z\",\n            \"projectend\": null,\n            \"vacancies\": [\n                {\n                \"id\": 3,\n                \"name\": \"Разработчик JS\"\n                },\n                {\n                \"id\":2,\n                \"name\": \"Куратор\"\n                }\n            ]\n        },\n        {\n            \"id\": 3,\n            \"name\": \"Коробейники\",\n            \"category\": \"Культура\",\n            \"description\": \"Практический опыт показывает, что новая модель организационной деятельности способствует повышению актуальности форм воздействия? Разнообразный и богатый опыт выбранный нами инновационный путь требует от нас анализа системы масштабного изменения ряда параметров. Задача организации, в особенности же повышение уровня гражданского сознания представляет собой интересный эксперимент проверки системы обучения кадров, соответствующей насущным потребностям? Задача организации, в особенности же повышение уровня гражданского сознания позволяет выполнить важнейшие задания по разработке дальнейших направлений развитая системы массового участия. Не следует, однако, забывать о том, что новая модель организационной деятельности способствует повышению актуальности системы масштабного изменения ряда параметров. Соображения высшего порядка, а также повышение уровня гражданского сознания представляет собой интересный эксперимент проверки форм воздействия.\",\n            \"status\": \"набор\",\n            \"projectstart\": \"2020-06-14T21:00:00.000Z\",\n            \"projectend\": null,\n            \"vacancies\": [\n                {\n                \"id\":3,\n                \"name\": \"Разработчик JS\"\n                },\n                {\n                \"id\":5,   \n                \"name\": \"Дизайнер\"\n                }\n            ]\n        }\n    ],\n    \"message\": \"Пользователи системы\"\n}",
+          "content": "HTTP/1.1 200 ОК\n{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": id,\n            \"name\": \"name\",\n            \"subcategory\": \"subcategory\",\n            \"category\": \"category\",\n            \"description\": \"description\",\n            \"status\": \"status\",\n            \"projectstart\": \"yyyy-mm-dd\",\n            \"projectend\": \"yyyy-mm-dd\",\n            \"adminid\": id,\n            \"accounts\": [\n                {\n                \"id\": id,\n                \"firstname\": \"firstname\",\n                \"lastname\": \"lastname\",\n                \"fathername\": \"fathername\",\n                \"photo\": \"url\",\n                \"jobs\": [\n                    {\n                    \"name\": \"name\"\n                    }\n                ],\n                \"date\": \"yyyy-mm-dd\"\n                }\n            ],\n            \"vacancies\": [\n                {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"count\": 4\n                }\n            ],\n            \"events\": [\n                {\n                \"id\": id,\n                \"name\": \"name\",\n                \"photo\": \"photo_url\",\n                \"date\": \"yyyy-mm-dd\"\n                }\n            ]\n            }\n    ],\n    \"message\": \"Проекты системы\"\n}",
           "type": "json"
         }
       ]
@@ -782,6 +908,13 @@ define({ "api": [
             "group": "Success 200",
             "type": "String",
             "optional": false,
+            "field": "data.subcategory",
+            "description": "<p>Подкатегория</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
             "field": "data.description",
             "description": "<p>Описание</p>"
           },
@@ -808,6 +941,69 @@ define({ "api": [
           },
           {
             "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "data.adminid",
+            "description": "<p>Id администратора проекта</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "data.accounts",
+            "description": "<p>Аккаунты</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "data.accounts.id",
+            "description": "<p>ID</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "data.accounts.firstname",
+            "description": "<p>Имя</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "data.accounts.lastname",
+            "description": "<p>Фамилия</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "data.accounts.fathername",
+            "description": "<p>Отчество</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "data.accounts.photo",
+            "description": "<p>Фото</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "data.accounts.jobs",
+            "description": "<p>Позиция в проекте</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "data.accounts.name",
+            "description": "<p>Наименование позиции</p>"
+          },
+          {
+            "group": "Success 200",
             "type": "Object[]",
             "optional": false,
             "field": "data.vacancies",
@@ -824,6 +1020,55 @@ define({ "api": [
             "group": "Success 200",
             "type": "String",
             "optional": false,
+            "field": "data.vacancies.description",
+            "description": "<p>Описание</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "data.vacancies.count",
+            "description": "<p>Количество</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "data.events",
+            "description": "<p>Мероприятия</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "data.events.id",
+            "description": "<p>ID мероприятия</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "data.events.name",
+            "description": "<p>Наименование</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "data.events.photo",
+            "description": "<p>Фото</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "data.events.date",
+            "description": "<p>Дата</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
             "field": "message",
             "description": "<p>Поясняющее сообщение</p>"
           }
@@ -832,7 +1077,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 ОК\n{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"Иванушки\",\n            \"category\": \"IT\",\n            \"description\": \"Повседневная практика показывает, что сплочённость команды профессионалов требует определения и уточнения системы массового участия! Мы вынуждены отталкиваться от того, что сложившаяся структура организации, а также свежий взгляд на привычные вещи - безусловно открывает новые горизонты для поэтапного и последовательного развития общества. Следует отметить, что базовый вектор развития однозначно определяет каждого участника как способного принимать собственные решения касаемо прогресса профессионального сообщества.\",\n            \"status\": \"набор\",\n            \"projectstart\": \"2020-05-29T21:00:00.000Z\",\n            \"projectend\": null,\n            \"vacancies\": [\n                {\n                \"id\": 3,\n                \"name\": \"Разработчик JS\"\n                },\n                {\n                \"id\":2,\n                \"name\": \"Куратор\"\n                }\n            ]\n        },\n        {\n            \"id\": 3,\n            \"name\": \"Коробейники\",\n            \"category\": \"Культура\",\n            \"description\": \"Практический опыт показывает, что новая модель организационной деятельности способствует повышению актуальности форм воздействия? Разнообразный и богатый опыт выбранный нами инновационный путь требует от нас анализа системы масштабного изменения ряда параметров. Задача организации, в особенности же повышение уровня гражданского сознания представляет собой интересный эксперимент проверки системы обучения кадров, соответствующей насущным потребностям? Задача организации, в особенности же повышение уровня гражданского сознания позволяет выполнить важнейшие задания по разработке дальнейших направлений развитая системы массового участия. Не следует, однако, забывать о том, что новая модель организационной деятельности способствует повышению актуальности системы масштабного изменения ряда параметров. Соображения высшего порядка, а также повышение уровня гражданского сознания представляет собой интересный эксперимент проверки форм воздействия.\",\n            \"status\": \"набор\",\n            \"projectstart\": \"2020-06-14T21:00:00.000Z\",\n            \"projectend\": null,\n            \"vacancies\": [\n                {\n                \"id\":3,\n                \"name\": \"Разработчик JS\"\n                },\n                {\n                \"id\":5,   \n                \"name\": \"Дизайнер\"\n                }\n            ]\n        }\n    ],\n    \"message\": \"Пользователи системы\"\n}",
+          "content": "HTTP/1.1 200 ОК\n{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": id,\n            \"name\": \"name\",\n            \"subcategory\": \"subcategory\",\n            \"category\": \"category\",\n            \"description\": \"description\",\n            \"status\": \"status\",\n            \"projectstart\": \"yyyy-mm-dd\",\n            \"projectend\": \"yyyy-mm-dd\",\n            \"adminid\": id,\n            \"accounts\": [\n                {\n                \"id\": id,\n                \"firstname\": \"firstname\",\n                \"lastname\": \"lastname\",\n                \"fathername\": \"fathername\",\n                \"photo\": \"url\",\n                \"jobs\": [\n                    {\n                    \"name\": \"name\"\n                    }\n                ],\n                \"date\": \"yyyy-mm-dd\"\n                }\n            ],\n            \"vacancies\": [\n                {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"count\": 4\n                }\n            ],\n            \"events\": [\n                {\n                \"id\": id,\n                \"name\": \"name\",\n                \"photo\": \"photo_url\",\n                \"date\": \"yyyy-mm-dd\"\n                }\n            ]\n        }\n    ],\n    \"message\": \"Пользователи системы\"\n}",
           "type": "json"
         }
       ]
@@ -1621,57 +1866,71 @@ define({ "api": [
             "group": "Success 200",
             "type": "Integer",
             "optional": false,
-            "field": "data.info.id",
+            "field": "data.id",
             "description": "<p>ID</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "data.info.firstname",
+            "field": "data.firstname",
             "description": "<p>Имя</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "data.info.lastname",
+            "field": "data.lastname",
             "description": "<p>Фамилия</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "data.info.fathername",
+            "field": "data.fathername",
             "description": "<p>Отчество</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "data.info.photo",
+            "field": "data.photo",
             "description": "<p>Фото</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "data.info.post",
+            "field": "data.post",
             "description": "<p>&quot;Положение&quot;</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "data.info.status",
+            "field": "data.status",
             "description": "<p>Статус</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "data.info.nickname",
+            "field": "data.nickname",
             "description": "<p>Ник</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "data.competences",
+            "description": "<p>Компетенции</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "data.competences.name",
+            "description": "<p>Наименование</p>"
           },
           {
             "group": "Success 200",
@@ -1679,13 +1938,6 @@ define({ "api": [
             "optional": false,
             "field": "data.contacts",
             "description": "<p>Контакты</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "Integer",
-            "optional": false,
-            "field": "data.contacts.id",
-            "description": "<p>ID контакта</p>"
           },
           {
             "group": "Success 200",
@@ -1705,34 +1957,6 @@ define({ "api": [
             "group": "Success 200",
             "type": "Object[]",
             "optional": false,
-            "field": "data.competences",
-            "description": "<p>Компетенции</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "Integer",
-            "optional": false,
-            "field": "data.competences.id",
-            "description": "<p>ID</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "data.competences.name",
-            "description": "<p>Наименование</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "Integer",
-            "optional": false,
-            "field": "data.competences.level",
-            "description": "<p>Уровень</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "Object[]",
-            "optional": false,
             "field": "data.projects",
             "description": "<p>Проекты</p>"
           },
@@ -1741,7 +1965,7 @@ define({ "api": [
             "type": "Integer",
             "optional": false,
             "field": "data.projects.id",
-            "description": "<p>ID проекта</p>"
+            "description": "<p>ID</p>"
           },
           {
             "group": "Success 200",
@@ -1752,10 +1976,45 @@ define({ "api": [
           },
           {
             "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "data.events",
+            "description": "<p>Мероприятия</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "data.events.id",
+            "description": "<p>ID мероприятия</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "data.events.projectID",
+            "description": "<p>ID проекта</p>"
+          },
+          {
+            "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "data.projects.category",
-            "description": "<p>Категория</p>"
+            "field": "data.events.name",
+            "description": "<p>Наименование</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "data.events.photo",
+            "description": "<p>Фото</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "data.events.date",
+            "description": "<p>Дата</p>"
           },
           {
             "group": "Success 200",
@@ -1769,7 +2028,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"status\": \"success\",\n    \"data\": {\n            \"info\": [\n                {\n                    \"id\": 198635,\n                    \"firstname\": \"Нателла\",\n                    \"lastname\": \"Стрельникова\",\n                    \"farthername\": \"Наумовна\",\n                    \"photo\": null,\n                    \"post\": null,\n                    \"status\": null,\n                    \"nickname\": \"198635\"\n                }\n            ],\n            \"contacts\": [\n                {\n                    \"id\": 1,\n                    \"name\": \"LeaderID\",\n                    \"url\": \"https://leader-id.ru/198635\"\n                },\n                {\n                    \"id\": 2,\n                    \"name\": \"Vkontakte\",\n                    \"url\": \"https://vk.com/198635\"\n                }\n            ],\n            \"competences\": [\n                {\n                    \"id\": 3,\n                    \"name\": \"Разработчик JS\",\n                    \"level\": 2\n                },\n                {\n                    \"id\": 8,\n                    \"name\": \"Веб-разработчик\",\n                    \"level\": 2\n                }\n            ],\n            \"projects\": [\n                {\n                    \"id\": 2,\n                    \"name\": \"International\",\n                    \"category\": \"IT\"\n                }\n            ]\n    },\n    \"message\": \"Информация о пользователе\"\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"status\": \"success\",\n    \"data\": {\n            \"id\": id,\n            \"firstname\": \"firstname\",\n            \"lastname\": \"lastname\",\n            \"farthername\": \"farthername\",\n            \"photo\": url,\n            \"post\": \"post\",\n            \"status\": \"status\",\n            \"nickname\": \"nickname\",\n            \"competences\": [\n                {\n                \"name\": name\n                }\n            ],\n            \"contacts\": [\n                {\n                \"name\": \"name\",\n                \"url\": \"url\"\n                }\n                }\n            ],\n            \"projects\": [\n                {\n                \"id\": id,\n                \"name\": \"name\"\n                }\n            ],\n            \"events\": [\n                {\n                \"id\": id,\n                \"projectID\": id,\n                \"name\": \"name\",\n                \"photo\": \"photo_url\",\n                \"date\": \"yyyy-mm-dd\"\n                }\n            ]\n        },\n    \"message\": \"Информация о пользователе\"\n}",
           "type": "json"
         }
       ]
@@ -1914,10 +2173,87 @@ define({ "api": [
           },
           {
             "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "data.contacts",
+            "description": "<p>Контакты</p>"
+          },
+          {
+            "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "data.competences.level",
-            "description": "<p>Уровень</p>"
+            "field": "data.contacts.name",
+            "description": "<p>Наименование</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "data.contacts.url",
+            "description": "<p>URL</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "data.projects",
+            "description": "<p>Проекты</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "data.projects.id",
+            "description": "<p>ID</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "data.projects.name",
+            "description": "<p>Наименование</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "data.events",
+            "description": "<p>Мероприятия</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "data.events.id",
+            "description": "<p>ID мероприятия</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "data.events.projectID",
+            "description": "<p>ID проекта</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "data.events.name",
+            "description": "<p>Наименование</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "data.events.photo",
+            "description": "<p>Фото</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "data.events.date",
+            "description": "<p>Дата</p>"
           },
           {
             "group": "Success 200",
@@ -1931,7 +2267,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": 2643,\n            \"firstname\": \"Марк\",\n            \"lastname\": \"Багдасаров\",\n            \"farthername\": null,\n            \"photo\": url,\n            \"post\": null,\n            \"status\": \"ищу проект\",\n            \"nickname\": \"2643\",\n            \"competences\": [\n                {\n                \"name\": \"Разработчик С++\",\n                \"level\": 1\n                }\n            ]\n        },\n        {\n            \"id\": 198635,\n            \"firstname\": \"Нателла\",\n            \"lastname\": \"Стрельникова\",\n            \"farthername\": \"Наумовна\",\n            \"photo\": url,\n            \"post\": null,\n            \"status\": \"ищу команду\",\n            \"nickname\": \"198635\",\n            \"competences\": [\n                {\n                \"name\": \"Разработчик JS\",\n                \"level\": 2\n                },\n                {\n                \"name\": \"Веб-разработчик\",\n                \"level\": 2\n                }\n            ]\n        }\n    ],\n    \"message\": \"Пользователи системы\"\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": id,\n            \"firstname\": \"firstname\",\n            \"lastname\": \"lastname\",\n            \"farthername\": \"farthername\",\n            \"photo\": url,\n            \"post\": \"post\",\n            \"status\": \"status\",\n            \"nickname\": \"nickname\",\n            \"competences\": [\n                {\n                \"name\": name\n                }\n            ],\n            \"contacts\": [\n                {\n                \"name\": \"name\",\n                \"url\": \"url\"\n                }\n                }\n            ],\n            \"projects\": [\n                {\n                \"id\": id,\n                \"name\": \"name\"\n                }\n            ],\n            \"events\": [\n                {\n                \"id\": id,\n                \"projectID\": id,\n                \"name\": \"name\",\n                \"photo\": \"photo_url\",\n                \"date\": \"yyyy-mm-dd\"\n                }\n            ]\n        }\n    ],\n    \"message\": \"Пользователи системы\"\n}",
           "type": "json"
         }
       ]
@@ -2112,10 +2448,87 @@ define({ "api": [
           },
           {
             "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "data.contacts",
+            "description": "<p>Контакты</p>"
+          },
+          {
+            "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "data.competences.level",
-            "description": "<p>Уровень</p>"
+            "field": "data.contacts.name",
+            "description": "<p>Наименование</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "data.contacts.url",
+            "description": "<p>URL</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "data.projects",
+            "description": "<p>Проекты</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "data.projects.id",
+            "description": "<p>ID</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "data.projects.name",
+            "description": "<p>Наименование</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "data.events",
+            "description": "<p>Мероприятия</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "data.events.id",
+            "description": "<p>ID мероприятия</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "data.events.projectID",
+            "description": "<p>ID проекта</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "data.events.name",
+            "description": "<p>Наименование</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "data.events.photo",
+            "description": "<p>Фото</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "data.events.date",
+            "description": "<p>Дата</p>"
           },
           {
             "group": "Success 200",
@@ -2129,7 +2542,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": 198635,\n            \"firstname\": \"Нателла\",\n            \"lastname\": \"Стрельникова\",\n            \"farthername\": \"Наумовна\",\n            \"photo\": null,\n            \"post\": null,\n            \"status\": \"ищу команду\",\n            \"nickname\": \"198635\",\n            \"competences\": [\n                {\n                \"name\": \"Разработчик JS\",\n                \"level\": 2\n                },\n                {\n                \"name\": \"Веб-разработчик\",\n                \"level\": 2\n                }\n            ]\n        }\n    ],\n    \"message\": \"Пользователи системы\"\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": id,\n            \"firstname\": \"firstname\",\n            \"lastname\": \"lastname\",\n            \"farthername\": \"farthername\",\n            \"photo\": url,\n            \"post\": \"post\",\n            \"status\": \"status\",\n            \"nickname\": \"nickname\",\n            \"competences\": [\n                {\n                \"name\": name\n                }\n            ],\n            \"contacts\": [\n                {\n                \"name\": \"name\",\n                \"url\": \"url\"\n                }\n                }\n            ],\n            \"projects\": [\n                {\n                \"id\": id,\n                \"name\": \"name\"\n                }\n            ],\n            \"events\": [\n                {\n                \"id\": id,\n                \"projectID\": id,\n                \"name\": \"name\",\n                \"photo\": \"photo_url\",\n                \"date\": \"yyyy-mm-dd\"\n                }\n            ]\n        }\n    ],\n    \"message\": \"Пользователи системы\"\n}",
           "type": "json"
         }
       ]
@@ -2384,7 +2797,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Request-Example:",
-          "content": "{ \n    \"contacts\": [\n        {\n            \"contactid\": 2,\n            \"url\": \"http://url.ru\"\n        },\n        {\n            \"contactid\": 3,\n            \"url\": \"http://url_two.ru\"\n        }\n    ]\n}",
+          "content": "{ \n    \"contacts\": [\n        {\n            \"contactid\": 2,\n            \"url\": \"url\"\n        },\n        {\n            \"contactid\": 3,\n            \"url\": \"url\"\n        }\n    ]\n}",
           "type": "json"
         }
       ]
@@ -2434,7 +2847,7 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "post",
-            "description": "<p>Положение&quot;</p>"
+            "description": "<p>&quot;Положение&quot;</p>"
           },
           {
             "group": "Parameter",
